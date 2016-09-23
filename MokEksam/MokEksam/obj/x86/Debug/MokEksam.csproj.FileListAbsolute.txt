@@ -1,0 +1,11 @@
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\MokEksam.csprojResolveAssemblyReference.cache
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\App.g.i.cs
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\App.g.cs
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\MainPage.g.i.cs
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\MainPage.g.cs
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\XamlTypeInfo.g.cs
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\App.xaml
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\MainPage.xaml
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\App.xbf
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\MainPage.xbf
+C:\Skole\System\Opgaver\MokEksam\MokEksam\MokEksam\obj\x86\Debug\XamlSaveStateFile.xml
