@@ -1,0 +1,11 @@
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\MokEksam.csprojResolveAssemblyReference.cache
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\App.g.i.cs
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\App.g.cs
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\MainPage.g.i.cs
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\MainPage.g.cs
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\XamlTypeInfo.g.cs
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\App.xaml
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\MainPage.xaml
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\App.xbf
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\MainPage.xbf
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\MokEksam\obj\ARM\Debug\XamlSaveStateFile.xml
