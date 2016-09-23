@@ -27,9 +27,9 @@ namespace MokEksam.Model
                 {
                     throw new ArgumentException("Invalid Username");
                 }
-                if (_validation.CheckUsername(value))
+                if (!_validation.CheckUsername(value))
                 {
-                    
+                    throw new ArgumentException("Username is already taken");
                 }
                 _username = value;
             }
@@ -38,15 +38,57 @@ namespace MokEksam.Model
         public string Password
         {
             get { return _password; }
-            set { _password = value; }
+            set
+            {
+                if (value.Length < 8)
+                {
+                    throw new ArgumentException("Invalid Password");
+                }
+                if (!CheckPassword(value))
+                {
+                    throw new ArgumentException("Invalid Password");
+                }
+                _password = value;
+            }
         }
 
         public string Email
         {
             get { return _email; }
-            set { _email = value; }
+            set
+            {
+                if (value.Length < 6)
+                {
+                    throw new ArgumentException("Invalid Email");
+                }
+                if (!value.Contains("@"))
+                {
+                    throw new ArgumentException("Invalid Email");
+
+                }
+                _email = value;
+            }
         }
 
         private CreateEndUserValidation _validation;
+
+        /// <summary>
+        /// Suspect it to be false positive.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        private bool CheckPassword(string input)
+        {
+            bool capitalLetterIndicator = Regex.IsMatch(input, @"^[\65-\90]+$");
+            bool symbolIndicator = Regex.IsMatch(input, @"^[\32-\64]+$");
+            if (symbolIndicator && capitalLetterIndicator)
+            {
+                return true;
+            }
+            return false;
+
+            
+        }
     }
 }
+

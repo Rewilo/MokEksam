@@ -1,9 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Input;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Client.Common;
 using MokEksam.Model;
 
@@ -13,10 +19,10 @@ namespace MokEksam.ViewModel
     {
         private EndUser _endUser;
 
-        public Task<bool> CheckUsername(string username)
+        public bool CheckUsername(string username)
         {
 
-            /*try
+            try
             {
                 HttpClientHandler clientHandler = new HttpClientHandler();
                 clientHandler.UseDefaultCredentials = true;
@@ -28,45 +34,24 @@ namespace MokEksam.ViewModel
 
 
                     var result =
-                        client.PutAsJsonAsync("Api/ordres/" + Ordre.ID + "?status=F",
-                            new Object()).Result;
-                    if (!result.IsSuccessStatusCode)
+                         client.GetAsync("Api/USER" + _endUser.Username).Result;
+                    if (result.IsSuccessStatusCode)
                     {
-                        throw new UnSuccesfulMeddelseRequest(result.StatusCode.ToString());
+                        return false;
                     }
-                }
-                ((Frame)Window.Current.Content).Navigate(typeof(V.Home));
-
-            }
-            catch (UnSuccesfulMeddelseRequest e)
-            {
-                var dialog = new MessageDialog("Der er sket en fejl på serveren, prøv igen? [Http error: " + e.Message + "]");
-                dialog.Commands.Add(new UICommand() { Label = "Forsøg igen", Id = 0 });
-                dialog.Commands.Add(new UICommand() { Label = "Nej", Id = 1 });
-                var show = await dialog.ShowAsync();
-
-                if ((int)show.Id == 0)
-                {
-                    goto retry;
-                }
-                {
-                    ((Frame)Window.Current.Content).Navigate(typeof(V.Home));
+                    if (result.StatusCode == HttpStatusCode.NotFound)
+                    {
+                        return true;
+                    }
+                    throw new ArgumentException("Something went wrong along the way... Try another day");
                 }
             }
             catch (Exception e)
             {
-                var dialog = new MessageDialog("Der er ingen forbindelse til internettet, prøv igen?");
-                dialog.Commands.Add(new UICommand() { Label = "Forsøg igen", Id = 0 });
-                dialog.Commands.Add(new UICommand() { Label = "Nej", Id = 1 });
-                var show = await dialog.ShowAsync();
+                //TODO: Implement an appropiate exceptionhandling code.
+                throw new NotImplementedException();
+            }
 
-                if ((int)show.Id == 0)
-                    goto retry;
-                else
-                    ((Frame)Window.Current.Content).Navigate(typeof(V.Home));
-            }*/
-            //TODO: Implement HTTP-requst to WebAPI to check if username already exist in Database.
-            throw new NotImplementedException();
         } 
     }
 }
