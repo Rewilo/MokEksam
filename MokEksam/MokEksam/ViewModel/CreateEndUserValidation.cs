@@ -10,7 +10,6 @@ using Windows.UI.Input;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Client.Common;
 using MokEksam.Model;
 
 namespace MokEksam.ViewModel

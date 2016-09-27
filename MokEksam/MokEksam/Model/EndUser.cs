@@ -79,15 +79,38 @@ namespace MokEksam.Model
         /// <returns></returns>
         private bool CheckPassword(string input)
         {
-            bool capitalLetterIndicator = Regex.IsMatch(input, @"^[\65-\90]+$");
-            bool symbolIndicator = Regex.IsMatch(input, @"^[\32-\64]+$");
-            if (symbolIndicator && capitalLetterIndicator)
-            {
-                return true;
-            }
-            return false;
+            string symbols = @"!#¤%&/()=?`";
+            string capitalLetters = "ABCDEFGHIJKLMNOPQRSTUVYZXÆØÅ";
+            string numbers = "1234567890";
 
-            
+            bool hasSymbol = false;
+            bool hasCapitalLetter = false;
+            bool hasNumber = false;
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                if (symbols.Contains(input[i]))
+                {
+                    hasSymbol = true;
+                }
+                if (capitalLetters.Contains(input[i]))
+                {
+                    hasCapitalLetter = true;
+                }
+                if (numbers.Contains(input[i]))
+                {
+                    hasNumber = true;
+                }
+            }
+            return hasSymbol && hasCapitalLetter && hasNumber;
+        }
+
+        public EndUser(string username, string password, string email, CreateEndUserValidation validation)
+        {
+            _username = username;
+            _password = password;
+            _email = email;
+            _validation = validation;
         }
     }
 }
