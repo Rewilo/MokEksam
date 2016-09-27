@@ -271,3 +271,4 @@ __pycache__/
 *.suo
 *.suo
 MokEksam/.vs/config/applicationhost.config
+MokEksam/SQLQuery2.sql
