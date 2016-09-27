@@ -29,5 +29,7 @@ namespace ServerDatabase.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ServerDatabase.Models.EndUser> EndUsers { get; set; }
     }
 }

@@ -33,7 +33,7 @@ namespace MokEksam.ViewModel
 
                 using (HttpClient client = new HttpClient(clientHandler))
                 {
-                    client.BaseAddress = new Uri(Config.ConnectionUrl);
+                    client.BaseAddress = new Uri("http://localhost:2820/");
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("applicantion/json"));
 
 
