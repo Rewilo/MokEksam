@@ -11,11 +11,11 @@ namespace MokEksam.Handler
 {
     class CreateEndUserHandler
     {
-        public EndUserViewModel _endUser;
+        public EndUserViewModel EndUser { get; set; }
 
         public CreateEndUserHandler(EndUserViewModel endUser)
         {
-            _endUser = endUser;
+            EndUser = endUser;
         }
 
         public bool CheckUsername(string username)
@@ -64,7 +64,7 @@ namespace MokEksam.Handler
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("applicantion/json"));
 
                     var result =
-                        client.PostAsJsonAsync("api/EndUser", endUser).Result;
+                        client.PostAsJsonAsync("api/EndUser", EndUser).Result;
                     if (result.IsSuccessStatusCode)
                     {
                         return await result.Content.ReadAsAsync<EndUser>();

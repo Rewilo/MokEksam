@@ -5,6 +5,7 @@ using MokEksam.Common;
 using MokEksam.Handler;
 using MokEksam.Model;
 using MokEksam.Properties;
+using System;
 
 namespace MokEksam.ViewModel
 {
@@ -22,7 +23,7 @@ namespace MokEksam.ViewModel
             {
                 _username = value;
                 Handler.CheckUsername(value);
-                OnPropertyChanged(Username);
+                OnPropertyChanged();
             }
         }
 
@@ -32,7 +33,7 @@ namespace MokEksam.ViewModel
             set
             {
                 _password = value;
-                OnPropertyChanged(Password);
+                OnPropertyChanged();
             }
         }
 
@@ -42,7 +43,7 @@ namespace MokEksam.ViewModel
             set
             {
                 _email = value;
-                OnPropertyChanged(Email);
+                OnPropertyChanged();
             }
         }
 
@@ -65,7 +66,7 @@ namespace MokEksam.ViewModel
         } 
         private async void CreateUser()
         {
-            EndUser = new EndUser(Username, Password, Email);
+            //EndUser = new EndUser(Username, Password, Email);
             await Handler.AddUser(EndUser);
         }
 
