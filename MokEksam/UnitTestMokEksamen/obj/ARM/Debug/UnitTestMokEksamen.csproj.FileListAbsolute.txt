@@ -1,6 +1,0 @@
-C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\UnitTestMokEksamen\obj\ARM\Debug\UnitTestApp.g.i.cs
-C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\UnitTestMokEksamen\obj\ARM\Debug\UnitTestApp.g.cs
-C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\UnitTestMokEksamen\obj\ARM\Debug\XamlTypeInfo.g.cs
-C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\UnitTestMokEksamen\obj\ARM\Debug\UnitTestApp.xaml
-C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\UnitTestMokEksamen\obj\ARM\Debug\UnitTestApp.xbf
-C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\UnitTestMokEksamen\obj\ARM\Debug\XamlSaveStateFile.xml

@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using MokEksam.ViewModel;
 
-namespace MokEksam.Model
+namespace ModelClassLibrary
 {
     public class EndUser
     {
@@ -66,7 +62,7 @@ namespace MokEksam.Model
                     throw new ArgumentException("Invalid Email");
 
                 }
-                if (value[value.Length - 4].Equals('.') | value[value.Length - 3].Equals('.'))
+                if (value[value.Length - 4].Equals('.') | value[value.Length -3].Equals('.'))
                 {
                     _email = value;
                 }

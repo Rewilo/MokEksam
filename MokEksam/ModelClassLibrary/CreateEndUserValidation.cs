@@ -1,22 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.UI.Input;
-using Windows.UI.Popups;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using MokEksam.Model;
 
-namespace MokEksam.ViewModel
+namespace ModelClassLibrary
 {
     public class CreateEndUserValidation
     {
-        private EndUser _endUser;
+        private readonly EndUser _endUser;
 
         public CreateEndUserValidation(EndUser endUser)
         {
@@ -25,7 +16,6 @@ namespace MokEksam.ViewModel
         /*
         public bool CheckUsername(string username)
         {
-
             try
             {
                 HttpClientHandler clientHandler = new HttpClientHandler();
