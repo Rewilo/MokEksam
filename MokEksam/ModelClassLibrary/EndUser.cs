@@ -23,10 +23,10 @@ namespace ModelClassLibrary
                 {
                     throw new ArgumentException("Invalid Username");
                 }
-                /*if (!_validation.CheckUsername(value))
+                if (!_validation.CheckUsername(value))
                 {
                     throw new ArgumentException("Username is already taken");
-                }*/
+                }
                 _username = value;
             }
         }

@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+using MokEksam.Handler;
 using MokEksam.ViewModel;
 
 namespace MokEksam.Model
@@ -27,10 +25,10 @@ namespace MokEksam.Model
                 {
                     throw new ArgumentException("Invalid Username");
                 }
-                /*if (!_validation.CheckUsername(value))
+                if (!_handler.CheckUsername(value))
                 {
                     throw new ArgumentException("Username is already taken");
-                }*/
+                }
                 _username = value;
             }
         }
@@ -78,7 +76,7 @@ namespace MokEksam.Model
             }
         }
 
-        private CreateEndUserValidation _validation;
+        private CreateEndUserHandler _handler;
 
         /// <summary>
         /// Suspect it to be false positive.
@@ -118,7 +116,6 @@ namespace MokEksam.Model
             _username = username;
             _password = password;
             _email = email;
-            _validation = new CreateEndUserValidation(this);
         }
     }
 }

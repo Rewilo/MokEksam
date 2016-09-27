@@ -1,5 +1,6 @@
 using System.Web.Http;
 using System.Web.Mvc;
+using ServerDatabase.Areas.HelpPage.App_Start;
 
 namespace ServerDatabase.Areas.HelpPage
 {

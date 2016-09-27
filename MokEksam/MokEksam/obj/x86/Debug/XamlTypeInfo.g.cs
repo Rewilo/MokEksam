@@ -75,7 +75,7 @@ namespace MokEksam.MokEksam_XamlTypeInfo
             return xamlType;
         }
 
-        public global::Windows.UI.Xaml.Markup.IXamlType GetXamlTypeByName(string typeName)
+        public Windows.UI.Xaml.Markup.IXamlType GetXamlTypeByName(string typeName)
         {
             if (string.IsNullOrEmpty(typeName))
             {
@@ -99,12 +99,14 @@ namespace MokEksam.MokEksam_XamlTypeInfo
             return xamlType;
         }
 
-        public global::Windows.UI.Xaml.Markup.IXamlMember GetMemberByLongName(string longMemberName)
+        public Windows.UI.Xaml.Markup.IXamlMember GetMemberByLongName(string longMemberName)
         {
             if (string.IsNullOrEmpty(longMemberName))
             {
                 return null;
             }
+        
+
             global::Windows.UI.Xaml.Markup.IXamlMember xamlMember;
             if (_xamlMembers.TryGetValue(longMemberName, out xamlMember))
             {
@@ -133,12 +135,12 @@ namespace MokEksam.MokEksam_XamlTypeInfo
         private void InitTypeTables()
         {
             _typeNameTable = new string[3];
-            _typeNameTable[0] = "MokEksam.MainPage";
+            _typeNameTable[0] = "MokEksam.View.CreateUser";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
 
             _typeTable = new global::System.Type[3];
-            _typeTable[0] = typeof(global::MokEksam.MainPage);
+            _typeTable[0] = typeof(global::MokEksam.View.CreateUser);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
@@ -175,7 +177,7 @@ namespace MokEksam.MokEksam_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_MainPage() { return new global::MokEksam.MainPage(); }
+        private object Activate_0_CreateUser() { return new global::MokEksam.View.CreateUser(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -187,9 +189,9 @@ namespace MokEksam.MokEksam_XamlTypeInfo
             switch (typeIndex)
             {
 
-            case 0:   //  MokEksam.MainPage
+            case 0:   //  MokEksam.View.CreateUser
                 userType = new global::MokEksam.MokEksam_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_MainPage;
+                userType.Activator = Activate_0_CreateUser;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

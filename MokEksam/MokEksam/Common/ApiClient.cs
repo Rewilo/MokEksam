@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+
 /*
 Husk at rette namespace
 Du kan saette et default URL ved at replace [DEFAULT URL] med dit url
 */
-namespace ApiClient.Common
+namespace MokEksam.Common
 {
     public class ApiClient<T>
 {

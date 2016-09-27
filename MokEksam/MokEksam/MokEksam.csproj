@@ -99,12 +99,20 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\ApiClient.cs" />
-    <Compile Include="MainPage.xaml.cs">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Common\Config.cs" />
+    <Compile Include="Common\RelayArgCommand.cs" />
+    <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Model\EndUser.cs" />
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\CreateEndUserValidation.cs" />
+    <Compile Include="ViewModel\EndUserViewModel.cs" />
+    <Compile Include="Handler\CreateEndUserHandler.cs" />
+    <Compile Include="View\CreateUser.xaml.cs">
+      <DependentUpon>CreateUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -127,9 +135,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="View\CreateUser.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

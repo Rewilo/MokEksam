@@ -13,7 +13,7 @@ namespace ModelClassLibrary
         {
             _endUser = endUser;
         }
-        /*
+        
         public bool CheckUsername(string username)
         {
             try
@@ -23,7 +23,7 @@ namespace ModelClassLibrary
 
                 using (HttpClient client = new HttpClient(clientHandler))
                 {
-                    client.BaseAddress = new Uri(Config.ConnectionUrl);
+                    //client.BaseAddress = new Uri(Config.ConnectionUrl);
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("applicantion/json"));
 
 
@@ -47,6 +47,5 @@ namespace ModelClassLibrary
             }
 
         } 
-        */
     }
 }
