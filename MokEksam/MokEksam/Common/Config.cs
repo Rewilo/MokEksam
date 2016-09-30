@@ -8,7 +8,7 @@ namespace MokEksam.Common
 {
     class Config
     {
-        //public static string ConnectionUrl { get; set; } = "http://localhost:1234";
-        public static string ConnectionUrl { get; set; } = "http://mokwebapinoauth20160927025512.azurewebsites.net/";
+        public static string ConnectionUrl { get; set; } = "http://localhost:26709/";
+        //public static string ConnectionUrl { get; set; } = "http://mokwebapinoauth20160927025512.azurewebsites.net/";
     }
 }

@@ -13,7 +13,7 @@ namespace MokEksam
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-    private global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider _provider;
+    private global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider _provider;
 
         /// <summary>
         /// GetXamlType(Type)
@@ -22,7 +22,7 @@ namespace MokEksam
         {
             if(_provider == null)
             {
-                _provider = new global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByType(type);
         }
@@ -34,7 +34,7 @@ namespace MokEksam
         {
             if(_provider == null)
             {
-                _provider = new global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByName(fullName);
         }
@@ -49,7 +49,7 @@ namespace MokEksam
     }
 }
 
-namespace MokEksam.MokEksam_XamlTypeInfo
+namespace MokEksam.Client_XamlTypeInfo
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -75,7 +75,7 @@ namespace MokEksam.MokEksam_XamlTypeInfo
             return xamlType;
         }
 
-        public Windows.UI.Xaml.Markup.IXamlType GetXamlTypeByName(string typeName)
+        public global::Windows.UI.Xaml.Markup.IXamlType GetXamlTypeByName(string typeName)
         {
             if (string.IsNullOrEmpty(typeName))
             {
@@ -99,14 +99,12 @@ namespace MokEksam.MokEksam_XamlTypeInfo
             return xamlType;
         }
 
-        public Windows.UI.Xaml.Markup.IXamlMember GetMemberByLongName(string longMemberName)
+        public global::Windows.UI.Xaml.Markup.IXamlMember GetMemberByLongName(string longMemberName)
         {
             if (string.IsNullOrEmpty(longMemberName))
             {
                 return null;
             }
-        
-
             global::Windows.UI.Xaml.Markup.IXamlMember xamlMember;
             if (_xamlMembers.TryGetValue(longMemberName, out xamlMember))
             {
@@ -134,15 +132,31 @@ namespace MokEksam.MokEksam_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[3];
-            _typeNameTable[0] = "MokEksam.View.CreateUser";
-            _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable = new string[11];
+            _typeNameTable[0] = "MokEksam.ViewModel.EndUserViewModel";
+            _typeNameTable[1] = "Object";
+            _typeNameTable[2] = "String";
+            _typeNameTable[3] = "Windows.UI.Xaml.Visibility";
+            _typeNameTable[4] = "Boolean";
+            _typeNameTable[5] = "MokEksam.Handler.CreateEndUserHandler";
+            _typeNameTable[6] = "System.Windows.Input.ICommand";
+            _typeNameTable[7] = "MokEksam.View.CreateUser";
+            _typeNameTable[8] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[9] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[10] = "MokEksam.View.Login";
 
-            _typeTable = new global::System.Type[3];
-            _typeTable[0] = typeof(global::MokEksam.View.CreateUser);
-            _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable = new global::System.Type[11];
+            _typeTable[0] = typeof(global::MokEksam.ViewModel.EndUserViewModel);
+            _typeTable[1] = typeof(global::System.Object);
+            _typeTable[2] = typeof(global::System.String);
+            _typeTable[3] = typeof(global::Windows.UI.Xaml.Visibility);
+            _typeTable[4] = typeof(global::System.Boolean);
+            _typeTable[5] = typeof(global::MokEksam.Handler.CreateEndUserHandler);
+            _typeTable[6] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[7] = typeof(global::MokEksam.View.CreateUser);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[10] = typeof(global::MokEksam.View.Login);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -177,42 +191,261 @@ namespace MokEksam.MokEksam_XamlTypeInfo
             return -1;
         }
 
-        private object Activate_0_CreateUser() { return new global::MokEksam.View.CreateUser(); }
+        private object Activate_0_EndUserViewModel() { return new global::MokEksam.ViewModel.EndUserViewModel(); }
+        private object Activate_7_CreateUser() { return new global::MokEksam.View.CreateUser(); }
+        private object Activate_10_Login() { return new global::MokEksam.View.Login(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::MokEksam.MokEksam_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::MokEksam.MokEksam_XamlTypeInfo.XamlUserType userType;
+            global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::MokEksam.Client_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
             switch (typeIndex)
             {
 
-            case 0:   //  MokEksam.View.CreateUser
-                userType = new global::MokEksam.MokEksam_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_0_CreateUser;
+            case 0:   //  MokEksam.ViewModel.EndUserViewModel
+                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_0_EndUserViewModel;
+                userType.AddMemberName("Username");
+                userType.AddMemberName("Password");
+                userType.AddMemberName("ConfirmPassword");
+                userType.AddMemberName("Email");
+                userType.AddMemberName("InvalidUsername");
+                userType.AddMemberName("CreateUserIsEnabled");
+                userType.AddMemberName("Handler");
+                userType.AddMemberName("CheckUsernameCommand");
+                userType.AddMemberName("NavigateToLoginCommand");
+                userType.AddMemberName("CreateUserCommand");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 1:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::MokEksam.MokEksam_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 1:   //  Object
+                xamlType = new global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 2:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::MokEksam.MokEksam_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 2:   //  String
+                xamlType = new global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 3:   //  Windows.UI.Xaml.Visibility
+                xamlType = new global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 4:   //  Boolean
+                xamlType = new global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 5:   //  MokEksam.Handler.CreateEndUserHandler
+                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.SetIsReturnTypeStub();
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 6:   //  System.Windows.Input.ICommand
+                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, null);
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 7:   //  MokEksam.View.CreateUser
+                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_7_CreateUser;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 8:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 10:   //  MokEksam.View.Login
+                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_10_Login;
+                userType.SetIsLocalType();
+                xamlType = userType;
                 break;
             }
             return xamlType;
         }
 
 
+        private object get_0_EndUserViewModel_Username(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.Username;
+        }
+        private void set_0_EndUserViewModel_Username(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.Username = (global::System.String)Value;
+        }
+        private object get_1_EndUserViewModel_Password(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.Password;
+        }
+        private void set_1_EndUserViewModel_Password(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.Password = (global::System.String)Value;
+        }
+        private object get_2_EndUserViewModel_ConfirmPassword(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.ConfirmPassword;
+        }
+        private void set_2_EndUserViewModel_ConfirmPassword(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.ConfirmPassword = (global::System.String)Value;
+        }
+        private object get_3_EndUserViewModel_Email(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.Email;
+        }
+        private void set_3_EndUserViewModel_Email(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.Email = (global::System.String)Value;
+        }
+        private object get_4_EndUserViewModel_InvalidUsername(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.InvalidUsername;
+        }
+        private void set_4_EndUserViewModel_InvalidUsername(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.InvalidUsername = (global::Windows.UI.Xaml.Visibility)Value;
+        }
+        private object get_5_EndUserViewModel_CreateUserIsEnabled(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.CreateUserIsEnabled;
+        }
+        private void set_5_EndUserViewModel_CreateUserIsEnabled(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.CreateUserIsEnabled = (global::System.Boolean)Value;
+        }
+        private object get_6_EndUserViewModel_Handler(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.Handler;
+        }
+        private void set_6_EndUserViewModel_Handler(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.Handler = (global::MokEksam.Handler.CreateEndUserHandler)Value;
+        }
+        private object get_7_EndUserViewModel_CheckUsernameCommand(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.CheckUsernameCommand;
+        }
+        private void set_7_EndUserViewModel_CheckUsernameCommand(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.CheckUsernameCommand = (global::System.Windows.Input.ICommand)Value;
+        }
+        private object get_8_EndUserViewModel_NavigateToLoginCommand(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.NavigateToLoginCommand;
+        }
+        private void set_8_EndUserViewModel_NavigateToLoginCommand(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.NavigateToLoginCommand = (global::System.Windows.Input.ICommand)Value;
+        }
+        private object get_9_EndUserViewModel_CreateUserCommand(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            return that.CreateUserCommand;
+        }
+        private void set_9_EndUserViewModel_CreateUserCommand(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.EndUserViewModel)instance;
+            that.CreateUserCommand = (global::System.Windows.Input.ICommand)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::MokEksam.MokEksam_XamlTypeInfo.XamlMember xamlMember = null;
-            // No Local Properties
+            global::MokEksam.Client_XamlTypeInfo.XamlMember xamlMember = null;
+            global::MokEksam.Client_XamlTypeInfo.XamlUserType userType;
+
+            switch (longMemberName)
+            {
+            case "MokEksam.ViewModel.EndUserViewModel.Username":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "Username", "String");
+                xamlMember.Getter = get_0_EndUserViewModel_Username;
+                xamlMember.Setter = set_0_EndUserViewModel_Username;
+                break;
+            case "MokEksam.ViewModel.EndUserViewModel.Password":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "Password", "String");
+                xamlMember.Getter = get_1_EndUserViewModel_Password;
+                xamlMember.Setter = set_1_EndUserViewModel_Password;
+                break;
+            case "MokEksam.ViewModel.EndUserViewModel.ConfirmPassword":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "ConfirmPassword", "String");
+                xamlMember.Getter = get_2_EndUserViewModel_ConfirmPassword;
+                xamlMember.Setter = set_2_EndUserViewModel_ConfirmPassword;
+                break;
+            case "MokEksam.ViewModel.EndUserViewModel.Email":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "Email", "String");
+                xamlMember.Getter = get_3_EndUserViewModel_Email;
+                xamlMember.Setter = set_3_EndUserViewModel_Email;
+                break;
+            case "MokEksam.ViewModel.EndUserViewModel.InvalidUsername":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "InvalidUsername", "Windows.UI.Xaml.Visibility");
+                xamlMember.Getter = get_4_EndUserViewModel_InvalidUsername;
+                xamlMember.Setter = set_4_EndUserViewModel_InvalidUsername;
+                break;
+            case "MokEksam.ViewModel.EndUserViewModel.CreateUserIsEnabled":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "CreateUserIsEnabled", "Boolean");
+                xamlMember.Getter = get_5_EndUserViewModel_CreateUserIsEnabled;
+                xamlMember.Setter = set_5_EndUserViewModel_CreateUserIsEnabled;
+                break;
+            case "MokEksam.ViewModel.EndUserViewModel.Handler":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "Handler", "MokEksam.Handler.CreateEndUserHandler");
+                xamlMember.Getter = get_6_EndUserViewModel_Handler;
+                xamlMember.Setter = set_6_EndUserViewModel_Handler;
+                break;
+            case "MokEksam.ViewModel.EndUserViewModel.CheckUsernameCommand":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "CheckUsernameCommand", "System.Windows.Input.ICommand");
+                xamlMember.Getter = get_7_EndUserViewModel_CheckUsernameCommand;
+                xamlMember.Setter = set_7_EndUserViewModel_CheckUsernameCommand;
+                break;
+            case "MokEksam.ViewModel.EndUserViewModel.NavigateToLoginCommand":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "NavigateToLoginCommand", "System.Windows.Input.ICommand");
+                xamlMember.Getter = get_8_EndUserViewModel_NavigateToLoginCommand;
+                xamlMember.Setter = set_8_EndUserViewModel_NavigateToLoginCommand;
+                break;
+            case "MokEksam.ViewModel.EndUserViewModel.CreateUserCommand":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.EndUserViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "CreateUserCommand", "System.Windows.Input.ICommand");
+                xamlMember.Getter = get_9_EndUserViewModel_CreateUserCommand;
+                xamlMember.Setter = set_9_EndUserViewModel_CreateUserCommand;
+                break;
+            }
             return xamlMember;
         }
     }
@@ -266,9 +499,9 @@ namespace MokEksam.MokEksam_XamlTypeInfo
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::MokEksam.MokEksam_XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType
     {
-        global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
@@ -282,7 +515,7 @@ namespace MokEksam.MokEksam_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -474,7 +707,7 @@ namespace MokEksam.MokEksam_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -483,7 +716,7 @@ namespace MokEksam.MokEksam_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;

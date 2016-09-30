@@ -149,5 +149,6 @@ C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\ServerDatabase\bin\Microsoft.O
 C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\ServerDatabase\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\ServerDatabase\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\ServerDatabase\bin\System.Web.Http.Owin.xml
+C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\ServerDatabase\obj\Debug\ServerDatabase.csprojResolveAssemblyReference.cache
 C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\ServerDatabase\obj\Debug\ServerDatabase.dll
 C:\Users\Rasmus\Source\Repos\MockProject\MokEksam\ServerDatabase\obj\Debug\ServerDatabase.pdb

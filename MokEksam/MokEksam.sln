@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MokEksam", "MokEksam\MokEksam.csproj", "{497690E4-C45D-4E93-BAD4-AD2E3039D033}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "MokEksam\Client.csproj", "{497690E4-C45D-4E93-BAD4-AD2E3039D033}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerDatabase", "ServerDatabase\ServerDatabase.csproj", "{D594825C-1FC2-44DE-98BC-F903B45C3F97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerDatabase.Tests", "ServerDatabase.Tests\ServerDatabase.Tests.csproj", "{54D11E4F-72FA-4851-BAD3-B9C18981AC5A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelClassLibrary", "ModelClassLibrary\ModelClassLibrary.csproj", "{3EF00E65-1120-4808-BC0C-75CBCDA25889}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi", "..\..\..\..\Documents\Visual Studio 2015\Projects\WebApi\WebApi\WebApi.csproj", "{8086BD0B-92F2-496F-A516-E36C122A9F29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -91,6 +93,22 @@ Global
 		{3EF00E65-1120-4808-BC0C-75CBCDA25889}.Release|x64.Build.0 = Release|Any CPU
 		{3EF00E65-1120-4808-BC0C-75CBCDA25889}.Release|x86.ActiveCfg = Release|Any CPU
 		{3EF00E65-1120-4808-BC0C-75CBCDA25889}.Release|x86.Build.0 = Release|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Debug|ARM.Build.0 = Debug|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Debug|x64.Build.0 = Debug|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Debug|x86.Build.0 = Debug|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Release|ARM.ActiveCfg = Release|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Release|ARM.Build.0 = Release|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Release|x64.ActiveCfg = Release|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Release|x64.Build.0 = Release|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Release|x86.ActiveCfg = Release|Any CPU
+		{8086BD0B-92F2-496F-A516-E36C122A9F29}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

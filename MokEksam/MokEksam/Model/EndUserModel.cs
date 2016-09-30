@@ -6,7 +6,7 @@ using MokEksam.ViewModel;
 
 namespace MokEksam.Model
 {
-    public class EndUser
+    public class EndUserModel
     {
         private string _username;
         private string _password;
@@ -22,12 +22,8 @@ namespace MokEksam.Model
                     throw new ArgumentException("Invalid Username");
                 }
                 if (!Regex.IsMatch(value, @"^[a-zA-Z]+$"))
-                {
-                    throw new ArgumentException("Invalid Username");
-                }
-                if (!_handler.CheckUsername(value))
-                {
-                    throw new ArgumentException("Username is already taken");
+                    {
+                    throw new ArgumentException("Username must consist of only letters, not numbers");
                 }
                 _username = value;
             }
@@ -76,8 +72,8 @@ namespace MokEksam.Model
             }
         }
 
-        private CreateEndUserHandler _handler;
-
+        
+        
         /// <summary>
         /// Suspect it to be false positive.
         /// </summary>
@@ -111,11 +107,17 @@ namespace MokEksam.Model
             return hasSymbol && hasCapitalLetter && hasNumber;
         }
 
-        public EndUser(string username, string password, string email)
+        public EndUserModel(string username, string password, string email)
         {
-            _username = username;
-            _password = password;
-            _email = email;
+            Username = username;
+            Password = password;
+            Email = email;
+            
+        }
+
+        public override string ToString()
+        {
+            return $"Username: {Username}, Password: {Password}, Email: {Email}";
         }
     }
 }

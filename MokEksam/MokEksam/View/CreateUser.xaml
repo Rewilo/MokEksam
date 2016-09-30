@@ -4,9 +4,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:MokEksam.ViewModel"
     x:Name="PageRoot"
     
     mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModel:EndUserViewModel/>
+    </Page.DataContext>
     
     <!--Page Content-->
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
@@ -18,7 +23,7 @@
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
-                    
+
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
@@ -28,32 +33,32 @@
             <RowDefinition Height="Auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        
-        <TextBox x:Name="PickUserNameTextbox" HorizontalAlignment="Left" Margin="376,360,0,0" Grid.Row="2" 
-                 TextWrapping="Wrap" PlaceholderText="Vælg Brugernavn" VerticalAlignment="Top" Height="25" Width="139"/>
+
+        <TextBox x:Name="PickUserNameTextbox" HorizontalAlignment="Left" Margin="529,111,0,0" Grid.Row="2" 
+			TextWrapping="Wrap" PlaceholderText="Vælg Brugernavn" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="25" Width="139"/>
 
         <TextBlock x:Name="PickUserNameTextBlock" HorizontalAlignment="Left" Margin="164,36,0,0" Grid.Row="2" 
-                   TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
+			TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
 
-        <TextBox x:Name="PickPasswordTextbox" HorizontalAlignment="Left" Margin="530,165,0,0" Grid.Row="2" 
-                 TextWrapping="Wrap" PlaceholderText="Vælg password" VerticalAlignment="Top" Height="25" Width="138"/>
+        <TextBox x:Name="PickPasswordTextbox" HorizontalAlignment="Left" Margin="530,148,0,0" Grid.Row="2" 
+			TextWrapping="Wrap" PlaceholderText="Vælg Password" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="25" Width="138"/>
 
         <TextBlock x:Name="PickPasswordTextBlock" HorizontalAlignment="Left" Margin="165,74,0,0" Grid.Row="2" 
-                   TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
+			TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
 
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="163,116,0,0" Grid.Row="2" 
-                   TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
+			TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
 
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Margin="511,268,0,0" Grid.Row="2" 
-                 TextWrapping="Wrap" PlaceholderText="Bekræft password" VerticalAlignment="Top" Height="25" Width="139"/>
+        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Margin="529,185,0,0" Grid.Row="2" 
+			TextWrapping="Wrap" PlaceholderText="Bekræft Password" Text="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="25" Width="139"/>
 
-        <Button x:Name="button" Content="Opret" HorizontalAlignment="Left" Margin="296,595,0,0" 
-                Grid.Row="2" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Margin="530,222,0,0" Grid.Row="2" 
+			TextWrapping="Wrap" PlaceholderText="Vælg Email" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="25" Width="139"/>
 
-        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Margin="726,410,0,0" Grid.Row="2" 
-                 TextWrapping="Wrap" PlaceholderText="Vælg Email" VerticalAlignment="Top" Height="25" Width="139"/>
+        <TextBlock x:Name="InvalidUsernameTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Username is taken" Grid.Row="2" Margin="790,116,0,0" Visibility="{Binding InvalidUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="164,158,0,0" Grid.Row="2" 
-                   TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
+        <AppBarButton x:Name="CreateUserAppBarButton" HorizontalAlignment="Left" Icon="Add" Label="Create User" Command="{Binding CreateUserCommand}" Margin="562,361,0,0" Grid.Row="2" VerticalAlignment="Top" IsEnabled="{Binding CreateUserIsEnabled}" VerticalContentAlignment="Top"/>
+        <AppBarButton x:Name="NavigateToLoginAppBarButton" HorizontalAlignment="Left" Icon="Back" Label="Go back" Command="{Binding NavigateToLoginCommand}" Margin="562,278,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <AppBarButton x:Name="CheckUsernameAppBarButton" HorizontalAlignment="Left" Icon="Accept" Label="Check Username" Command="{Binding CheckUsernameCommand}" Margin="700,79,0,0" Grid.Row="2" VerticalAlignment="Top" Height="68" Width="70" RenderTransformOrigin="0.5,0.676"/>
     </Grid>
 </Page>

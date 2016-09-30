@@ -15,10 +15,10 @@ namespace MokEksam.Properties
   /// so the check for <c>null</c> is necessary before its usage.
   /// </summary>
   /// <example><code>
-  /// [CanBeNull] object Test() => null;
+  /// [CanBeNull] object TestViewModel() => null;
   /// 
   /// void UseTest() {
-  ///   var p = Test();
+  ///   var p = TestViewModel();
   ///   var s = p.ToString(); // Warning: Possible 'System.NullReferenceException'
   /// }
   /// </code></example>
@@ -259,7 +259,7 @@ namespace MokEksam.Properties
   /// class NoEquality { }
   /// 
   /// class UsesNoEquality {
-  ///   void Test() {
+  ///   void TestViewModel() {
   ///     var ca1 = new NoEquality();
   ///     var ca2 = new NoEquality();
   ///     if (ca1 != null) { // OK

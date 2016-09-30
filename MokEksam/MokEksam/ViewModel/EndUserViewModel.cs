@@ -1,11 +1,15 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using MokEksam.Common;
 using MokEksam.Handler;
 using MokEksam.Model;
 using MokEksam.Properties;
-using System;
+using Windows.UI.Popups;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace MokEksam.ViewModel
 {
@@ -13,8 +17,14 @@ namespace MokEksam.ViewModel
     {
         private string _username;
         private string _password;
+        private string _confirmPassword;
         private string _email;
         private CreateEndUserHandler _handler;
+        private ICommand _navigateToLoginCommand;
+        private ICommand _createUserCommand;
+        private ICommand _checkUsernameCommand;
+        private Visibility _invalidUsername;
+        private bool _createUserIsEnabled;
 
         public string Username
         {
@@ -22,7 +32,6 @@ namespace MokEksam.ViewModel
             set
             {
                 _username = value;
-                Handler.CheckUsername(value);
                 OnPropertyChanged();
             }
         }
@@ -37,6 +46,15 @@ namespace MokEksam.ViewModel
             }
         }
 
+        public string ConfirmPassword
+        {
+            get { return _confirmPassword; }
+            set
+            {
+                _confirmPassword = value;
+                OnPropertyChanged();
+            }
+        }
         public string Email
         {
             get { return _email; }
@@ -47,7 +65,25 @@ namespace MokEksam.ViewModel
             }
         }
 
-        public EndUser EndUser { get; set; }
+        public Visibility InvalidUsername
+        {
+            get { return _invalidUsername; }
+            set
+            {
+                _invalidUsername = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public bool CreateUserIsEnabled
+        {
+            get { return _createUserIsEnabled; }
+            set
+            {
+                _createUserIsEnabled = value;
+                OnPropertyChanged();
+            }
+        }
 
         public CreateEndUserHandler Handler
         {
@@ -55,24 +91,61 @@ namespace MokEksam.ViewModel
             set { _handler = value; }
         }
 
-        public ICommand NavigateToLoginCommand { get; set; }
-        public ICommand CreateUserCommand { get; set; }
-        
+        public ICommand CheckUsernameCommand
+        {
+            get { return _checkUsernameCommand ?? (_checkUsernameCommand = new RelayCommand(CheckUsername)); }
+            set { _checkUsernameCommand = value; }
+        }
+
+        public ICommand NavigateToLoginCommand
+        {
+            get { return _navigateToLoginCommand ?? (_navigateToLoginCommand = new RelayCommand(NavigateToLogin)); }
+            set { _navigateToLoginCommand = value; }
+        }
+
+        public ICommand CreateUserCommand
+        {
+            get { return _createUserCommand ?? (_createUserCommand = new RelayCommand(CreateUser)); }
+            set { _createUserCommand = value; }
+        }
+
         public EndUserViewModel()
         {
             Handler = new CreateEndUserHandler(this);
+            CheckUsernameCommand = new RelayCommand(CheckUsername);
             CreateUserCommand = new RelayCommand(CreateUser);
             NavigateToLoginCommand = new RelayCommand(NavigateToLogin);
-        } 
+
+            InvalidUsername = Visibility.Collapsed;
+            CreateUserIsEnabled = false;
+        }
+
         private async void CreateUser()
         {
-            //EndUser = new EndUser(Username, Password, Email);
-            await Handler.AddUser(EndUser);
+            EndUserModel newEndUserModel = new EndUserModel(Username, Password, Email);
+            EndUser endUserDTO = new EndUser(newEndUserModel.Username, newEndUserModel.Password, newEndUserModel.Email);
+            var result = await Handler.AddUser(endUserDTO);
+            var displayDialog = new MessageDialog(result.ToString());
+            var displayDialogResult = await displayDialog.ShowAsync();
+            NavigateToLogin();
+        }
+        private void CheckUsername()
+        {
+            if (Handler.CheckUsername(Username))
+            {
+                InvalidUsername = Visibility.Collapsed;
+                CreateUserIsEnabled = true;
+            }
+            else
+            {
+                InvalidUsername = Visibility.Visible;
+                CreateUserIsEnabled = false;
+            }
         }
 
         private void NavigateToLogin()
         {
-            //((Frame)Window.Current.Content).Navigate(typeof(View.Login));
+            ((Frame)Window.Current.Content).Navigate(typeof(View.Login));
         }
         #region OnPropertyChangedSupport
         public event PropertyChangedEventHandler PropertyChanged;
@@ -81,7 +154,7 @@ namespace MokEksam.ViewModel
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        } 
+        }
         #endregion
     }
 }

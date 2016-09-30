@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Windows.UI.Popups;
 using MokEksam.Common;
 using MokEksam.Model;
 using MokEksam.ViewModel;
@@ -11,13 +12,13 @@ namespace MokEksam.Handler
 {
     class CreateEndUserHandler
     {
-        public EndUserViewModel EndUser { get; set; }
-
-        public CreateEndUserHandler(EndUserViewModel endUser)
+        private EndUserViewModel EndUserViewModel { get; set; }
+        
+        public CreateEndUserHandler(EndUserViewModel endUserViewModel)
         {
-            EndUser = endUser;
+            EndUserViewModel = endUserViewModel;
         }
-
+        
         public bool CheckUsername(string username)
         {
             try
@@ -32,7 +33,7 @@ namespace MokEksam.Handler
 
 
                     var result =
-                         client.GetAsync("Api/EndUser" + username).Result;
+                         client.GetAsync("api/EndUsers/" + username).Result;
                     if (result.IsSuccessStatusCode)
                     {
                         return false;
@@ -44,10 +45,12 @@ namespace MokEksam.Handler
                     throw new ArgumentException("Something went wrong along the way... Try another day");
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 //TODO: Implement an appropiate exceptionhandling code.
-                throw new NotImplementedException();
+                var displayExceptionMessage = new MessageDialog(ex.Message);
+                var displayExceptionMessageResult = displayExceptionMessage.ShowAsync();
+                return false;
             }
         }
 
@@ -64,18 +67,19 @@ namespace MokEksam.Handler
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("applicantion/json"));
 
                     var result =
-                        client.PostAsJsonAsync("api/EndUser", EndUser).Result;
+                        client.PostAsJsonAsync("api/EndUsers", endUser).Result;
                     if (result.IsSuccessStatusCode)
                     {
                         return await result.Content.ReadAsAsync<EndUser>();
                     }
-                    throw new UnSuccesfulRequest();
+                    throw new UnSuccesfulRequest("Ran into a problem ...");
                 }
             }
             catch (UnSuccesfulRequest ex)
             {
-                //TODO: Implement an appropiate exceptionhandling code.
-                throw new NotImplementedException();
+                var displayExceptionMessage = new MessageDialog(ex.Message);
+                var displayExceptionMessageResult = await displayExceptionMessage.ShowAsync();
+                return new ViewModel.EndUser("DerSketeEnFejl","abcdef1!", "abc@abc.dk");
             }
         }
     }
