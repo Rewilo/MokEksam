@@ -8,57 +8,230 @@
     x:Name="PageRoot"
     
     mc:Ignorable="d">
+    <Page.Resources>
 
-    <Page.DataContext>
-        <ViewModel:EndUserViewModel/>
-    </Page.DataContext>
-    
-    <!--Page Content-->
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Page layout StackPanel  -->
 
-        <!-- Responsive design -->
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720" />
-                    </VisualState.StateTriggers>
+        <Style x:Key="PageInformation" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Vertical" />
+            <Setter Property="MaxWidth" Value="1000" />
+            <Setter Property="Padding" Value="0,15" />
+            <Setter Property="Grid.Row" Value="1"/>
+            <Setter Property="BorderThickness" Value="0,0,0,0.5" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
 
-                </VisualState>
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        <!--Stack Panel Form Text Area-->
+        <Style x:Key="FormTextArea" TargetType="StackPanel">
+            <Setter Property="Orientation" Value="Horizontal" />
+        </Style>
 
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+        <!-- Button Layout  -->
 
-        <TextBox x:Name="PickUserNameTextbox" HorizontalAlignment="Left" Margin="529,111,0,0" Grid.Row="2" 
-			TextWrapping="Wrap" PlaceholderText="Vælg Brugernavn" Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="25" Width="139"/>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Foreground" Value="#FF000000"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Margin" Value ="0,30" />
+            <Setter Property="Height" Value ="60" />
+            <Setter Property="Width" Value="140" />
 
-        <TextBlock x:Name="PickUserNameTextBlock" HorizontalAlignment="Left" Margin="164,36,0,0" Grid.Row="2" 
-			TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
+        </Style>
 
-        <TextBox x:Name="PickPasswordTextbox" HorizontalAlignment="Left" Margin="530,148,0,0" Grid.Row="2" 
-			TextWrapping="Wrap" PlaceholderText="Vælg Password" Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="25" Width="138"/>
+        <!-- TextBlackBoxBlock layout-->
 
-        <TextBlock x:Name="PickPasswordTextBlock" HorizontalAlignment="Left" Margin="165,74,0,0" Grid.Row="2" 
-			TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
+        <Style x:Key="PageTextBoxBlack" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe Black" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="30pt" />
+            <Setter Property="Foreground" Value="#FF000000" />
+        </Style>
 
-        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="163,116,0,0" Grid.Row="2" 
-			TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="128" Height="27"/>
+        <!-- TextBlockGrey layout-->
 
-        <TextBox x:Name="textBox_Copy1" HorizontalAlignment="Left" Margin="529,185,0,0" Grid.Row="2" 
-			TextWrapping="Wrap" PlaceholderText="Bekræft Password" Text="{Binding ConfirmPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="25" Width="139"/>
+        <Style x:Key="PageTextBlockGrey" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe Black" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="30pt" />
+            <Setter Property="Foreground" Value="#FF777777" />
+        </Style>
 
-        <TextBox x:Name="textBox_Copy2" HorizontalAlignment="Left" Margin="530,222,0,0" Grid.Row="2" 
-			TextWrapping="Wrap" PlaceholderText="Vælg Email" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Height="25" Width="139"/>
+        <!-- Label layout TextBlock-->
 
-        <TextBlock x:Name="InvalidUsernameTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" Text="Username is taken" Grid.Row="2" Margin="790,116,0,0" Visibility="{Binding InvalidUsername, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Style x:Key="LabelStyles" TargetType="TextBlock">
+            <Setter Property="Margin" Value="0,30" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="0,0,30,0" />
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
 
-        <AppBarButton x:Name="CreateUserAppBarButton" HorizontalAlignment="Left" Icon="Add" Label="Create User" Command="{Binding CreateUserCommand}" Margin="562,361,0,0" Grid.Row="2" VerticalAlignment="Top" IsEnabled="{Binding CreateUserIsEnabled}" VerticalContentAlignment="Top"/>
-        <AppBarButton x:Name="NavigateToLoginAppBarButton" HorizontalAlignment="Left" Icon="Back" Label="Go back" Command="{Binding NavigateToLoginCommand}" Margin="562,278,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-        <AppBarButton x:Name="CheckUsernameAppBarButton" HorizontalAlignment="Left" Icon="Accept" Label="Check Username" Command="{Binding CheckUsernameCommand}" Margin="700,79,0,0" Grid.Row="2" VerticalAlignment="Top" Height="68" Width="70" RenderTransformOrigin="0.5,0.676"/>
+        <!-- Label layout Textbox Grey-->
+
+        <Style x:Key="TextBoxStyleG" TargetType="TextBox">
+            <Setter Property="FontFamily" Value="Segoe Black" />
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="Foreground" Value="#FF777777" />
+        </Style>
+
+    </Page.Resources>
+    <!--Page Transition-->
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition>
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <EntranceNavigationTransitionInfo />
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+            </NavigationThemeTransition>
+        </TransitionCollection>
+    </Page.Transitions>
+
+    <!--Main Content-->
+    <Grid Name="MainContent"
+          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <ScrollViewer Name="FormScroller">
+            <Grid Name="ForScrollerContent">
+
+                <!--The Form-->
+                <StackPanel Name="CreateUserArea"
+                            Margin="50,0"
+                            MaxWidth="500"
+                            Visibility="{Binding 
+                                         Mode=TwoWay,
+                                         UpdateSourceTrigger=PropertyChanged}">
+
+                    <!--Form Title-->
+                    <TextBlock Name="FormTitle"
+                               FontSize="36"
+                               Margin="0,20"                              
+                               TextAlignment="Center"
+                               Text="Create user"/>
+
+                    <!--Create name area-->
+                    <StackPanel Name="UserNameArea">
+
+                        <StackPanel Name="UserNameText"
+                                    Style="{StaticResource FormTextArea}">
+
+                            <TextBlock Name="UserNameLabel"
+                                       Text="Write your name"
+                                       Style="{StaticResource LabelStyles}" />
+
+                        </StackPanel>
+
+                        <TextBox Name="UserNameInput"
+                                 PlaceholderText="Vælg Brugernavn"
+                                 Style="{StaticResource TextBoxStyleG}"
+                                 Text="{Binding Username,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}" />
+
+                        <TextBlock Name="InvalidUsernameTextBlock" 
+                                 Text="Username is taken"   
+                                 Visibility="{Binding InvalidUsername, 
+                                 Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged}"/>
+
+
+                    </StackPanel>
+
+                    <!--Email area-->
+                    <StackPanel Name="UserEmailArea">
+
+                        <StackPanel Name="EmailArea"
+                                    Style="{StaticResource FormTextArea}">
+
+                            <TextBlock Name="UserEmailLabel"
+                                       Text="Write Email"
+                                       Style="{StaticResource LabelStyles}" />
+                        </StackPanel>
+
+                        <TextBox Name="UserEmailInput"
+                                 PlaceholderText="Vælg Email"
+                                 Style="{StaticResource TextBoxStyleG}"
+                                 Text="{Binding Email,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}" />
+
+
+                    </StackPanel>
+
+                    <!--Password-->
+                    <StackPanel Name="UserPasswordArea">
+
+                        <StackPanel Name="UserPasswordtext"
+                                    Style="{StaticResource FormTextArea}">
+
+                            <TextBlock Name="UserPasswordLabel"
+                                       Text="Write Password"
+                                       Style="{StaticResource LabelStyles}" />
+
+                        </StackPanel>
+
+                        <TextBox Name="PickPasswordTextbox"
+                                 PlaceholderText="Vælg Password"
+                                 Style="{StaticResource TextBoxStyleG}"
+                                 Text="{Binding Password,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}" />
+                    </StackPanel>
+
+                    <!--Confirm password-->
+                    <StackPanel Name="CUserconfirmPassword">
+
+                        <StackPanel Name="Confirmpassword"
+                                    Style="{StaticResource FormTextArea}">
+
+                            <TextBlock Name="ConfirmPasswordLabel"
+                                       Text="Confirm password"
+                                       Style="{StaticResource LabelStyles}" />
+                        </StackPanel>
+
+                        <TextBox Name="PasswordLabel"
+                                 PlaceholderText="Bekræft Password"
+                                 Style="{StaticResource TextBoxStyleG}"
+                                 Text="{Binding ConfirmPassword,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}" />
+
+                        <!--Button area-->
+
+                    </StackPanel>
+                    <StackPanel Name="StackPanelCreateUser" Orientation="Horizontal" >
+
+                        <Button x:Name="CreateUserAppBarButton"
+                            Content="Create user!"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource ButtonStyle}"
+                            Command="{Binding CreateUserCommand, Mode=OneWay}"
+                            IsEnabled="{Binding CreateUserIsEnabled}" 
+                           
+                            Margin="15"/>
+
+                        <!--Icon="Add" Label="Create User"-->
+
+                        <Button x:Name="CheckUsernameAppBarButton"
+                            Content="Check user"                          
+                            Style="{StaticResource ButtonStyle}"
+                            Command="{Binding CheckUsernameCommand, Mode=OneWay}"  
+                           
+                            Margin="15"/>
+
+                        <!--Icon="Accept" Label="Check Username"-->
+
+                        <Button x:Name="NavigateToLoginAppBarButton"
+                            Content="Login"                                                      
+                            Style="{StaticResource ButtonStyle}"
+                            Command="{Binding NavigateToLoginCommand, Mode=OneWay}" 
+                           
+                            Margin="15"/>
+                    </StackPanel>
+                    
+                    <!--Icon="Back" Label="Go back"-->
+
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
     </Grid>
 </Page>
