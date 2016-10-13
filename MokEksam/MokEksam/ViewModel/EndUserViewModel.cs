@@ -10,6 +10,7 @@ using MokEksam.Properties;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using MokEksam.Model.DTO;
 
 namespace MokEksam.ViewModel
 {
@@ -147,6 +148,7 @@ namespace MokEksam.ViewModel
         {
             ((Frame)Window.Current.Content).Navigate(typeof(View.Login));
         }
+
         #region OnPropertyChangedSupport
         public event PropertyChangedEventHandler PropertyChanged;
 

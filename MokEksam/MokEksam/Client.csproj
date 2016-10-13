@@ -104,12 +104,15 @@
     <Compile Include="Common\RelayArgCommand.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Handler\CheckPasswordHandler.cs" />
+    <Compile Include="Handler\ForgotPasswordHandler.cs" />
     <Compile Include="Model\EndUserModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModel\EndUser.cs" />
+    <Compile Include="Model\DTO\EndUser.cs" />
     <Compile Include="ViewModel\EndUserViewModel.cs" />
     <Compile Include="Handler\CreateEndUserHandler.cs" />
+    <Compile Include="ViewModel\ForgotPasswordViewModel.cs" />
     <Compile Include="ViewModel\LogInViewModel.cs" />
     <Compile Include="View\CreateUser.xaml.cs">
       <DependentUpon>CreateUser.xaml</DependentUpon>

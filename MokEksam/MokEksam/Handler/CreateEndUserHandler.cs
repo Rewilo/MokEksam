@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.UI.Popups;
 using MokEksam.Common;
 using MokEksam.Model;
+using MokEksam.Model.DTO;
 using MokEksam.ViewModel;
 
 namespace MokEksam.Handler
@@ -79,7 +80,7 @@ namespace MokEksam.Handler
             {
                 var displayExceptionMessage = new MessageDialog(ex.Message);
                 var displayExceptionMessageResult = await displayExceptionMessage.ShowAsync();
-                return new ViewModel.EndUser("DerSketeEnFejl","abcdef1!", "abc@abc.dk");
+                return new EndUser("DerSketeEnFejl","abcdef1!", "abc@abc.dk");
             }
         }
     }
