@@ -101,12 +101,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ServerDatabase\ServerDatabase.csproj">
-      <Project>{D594825C-1FC2-44DE-98BC-F903B45C3F97}</Project>
-      <Name>ServerDatabase</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
