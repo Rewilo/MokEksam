@@ -13,7 +13,7 @@ namespace MokEksam
 {
     public partial class App : global::Windows.UI.Xaml.Markup.IXamlMetadataProvider
     {
-    private global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider _provider;
+    private global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider _provider;
 
         /// <summary>
         /// GetXamlType(Type)
@@ -22,7 +22,7 @@ namespace MokEksam
         {
             if(_provider == null)
             {
-                _provider = new global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByType(type);
         }
@@ -34,7 +34,7 @@ namespace MokEksam
         {
             if(_provider == null)
             {
-                _provider = new global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider();
+                _provider = new global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider();
             }
             return _provider.GetXamlTypeByName(fullName);
         }
@@ -49,7 +49,7 @@ namespace MokEksam
     }
 }
 
-namespace MokEksam.Client_XamlTypeInfo
+namespace MokEksam.MokEksam_XamlTypeInfo
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -132,19 +132,15 @@ namespace MokEksam.Client_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[5];
+            _typeNameTable = new string[3];
             _typeNameTable[0] = "MokEksam.View.CreateUser";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[3] = "MokEksam.View.ForgotPassword";
-            _typeNameTable[4] = "MokEksam.View.Login";
 
-            _typeTable = new global::System.Type[5];
+            _typeTable = new global::System.Type[3];
             _typeTable[0] = typeof(global::MokEksam.View.CreateUser);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[3] = typeof(global::MokEksam.View.ForgotPassword);
-            _typeTable[4] = typeof(global::MokEksam.View.Login);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -180,13 +176,11 @@ namespace MokEksam.Client_XamlTypeInfo
         }
 
         private object Activate_0_CreateUser() { return new global::MokEksam.View.CreateUser(); }
-        private object Activate_3_ForgotPassword() { return new global::MokEksam.View.ForgotPassword(); }
-        private object Activate_4_Login() { return new global::MokEksam.View.Login(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
-            global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType xamlType = null;
-            global::MokEksam.Client_XamlTypeInfo.XamlUserType userType;
+            global::MokEksam.MokEksam_XamlTypeInfo.XamlSystemBaseType xamlType = null;
+            global::MokEksam.MokEksam_XamlTypeInfo.XamlUserType userType;
             string typeName = _typeNameTable[typeIndex];
             global::System.Type type = _typeTable[typeIndex];
 
@@ -194,32 +188,18 @@ namespace MokEksam.Client_XamlTypeInfo
             {
 
             case 0:   //  MokEksam.View.CreateUser
-                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType = new global::MokEksam.MokEksam_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
                 userType.Activator = Activate_0_CreateUser;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
             case 1:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                xamlType = new global::MokEksam.MokEksam_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
             case 2:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType(typeName, type);
-                break;
-
-            case 3:   //  MokEksam.View.ForgotPassword
-                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_ForgotPassword;
-                userType.SetIsLocalType();
-                xamlType = userType;
-                break;
-
-            case 4:   //  MokEksam.View.Login
-                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_4_Login;
-                userType.SetIsLocalType();
-                xamlType = userType;
+                xamlType = new global::MokEksam.MokEksam_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
             return xamlType;
@@ -229,7 +209,7 @@ namespace MokEksam.Client_XamlTypeInfo
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
-            global::MokEksam.Client_XamlTypeInfo.XamlMember xamlMember = null;
+            global::MokEksam.MokEksam_XamlTypeInfo.XamlMember xamlMember = null;
             // No Local Properties
             return xamlMember;
         }
@@ -284,9 +264,9 @@ namespace MokEksam.Client_XamlTypeInfo
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Windows.UI.Xaml.Build.Tasks"," 14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-    internal class XamlUserType : global::MokEksam.Client_XamlTypeInfo.XamlSystemBaseType
+    internal class XamlUserType : global::MokEksam.MokEksam_XamlTypeInfo.XamlSystemBaseType
     {
-        global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider _provider;
         global::Windows.UI.Xaml.Markup.IXamlType _baseType;
         bool _isArray;
         bool _isMarkupExtension;
@@ -300,7 +280,7 @@ namespace MokEksam.Client_XamlTypeInfo
         global::System.Collections.Generic.Dictionary<string, string> _memberNames;
         global::System.Collections.Generic.Dictionary<string, object> _enumValues;
 
-        public XamlUserType(global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
+        public XamlUserType(global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider provider, string fullName, global::System.Type fullType, global::Windows.UI.Xaml.Markup.IXamlType baseType)
             :base(fullName, fullType)
         {
             _provider = provider;
@@ -492,7 +472,7 @@ namespace MokEksam.Client_XamlTypeInfo
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     internal class XamlMember : global::Windows.UI.Xaml.Markup.IXamlMember
     {
-        global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider _provider;
+        global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider _provider;
         string _name;
         bool _isAttachable;
         bool _isDependencyProperty;
@@ -501,7 +481,7 @@ namespace MokEksam.Client_XamlTypeInfo
         string _typeName;
         string _targetTypeName;
 
-        public XamlMember(global::MokEksam.Client_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
+        public XamlMember(global::MokEksam.MokEksam_XamlTypeInfo.XamlTypeInfoProvider provider, string name, string typeName)
         {
             _name = name;
             _typeName = typeName;
