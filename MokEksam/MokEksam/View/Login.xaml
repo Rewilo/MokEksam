@@ -132,7 +132,7 @@
                     </StackPanel>
 
                     <!--Button area-->
-                    <StackPanel Name="StackPanel user" Orientation="Horizontal" >
+                    <StackPanel Name="StackPanelUser" Orientation="Horizontal" >
 
 
                         <Button x:Name="CreateButton"
