@@ -92,24 +92,46 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Service References\EndUserDBService\MokEksam.EndUserDBService.EndUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\EndUserDBService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\EndUserDBService\configuration.svcinfo" />
+    <None Include="Service References\EndUserDBService\configuration91.svcinfo" />
     <None Include="project.json" />
+    <None Include="Properties\ServiceReferences.Designer.ClientConfig" />
+    <None Include="Service References\EndUserDBService\EndUserDatabaseService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\ApiClient.cs" />
+    <None Include="Common\ApiClient.cs" />
     <Compile Include="Common\Config.cs" />
-    <Compile Include="Common\Converter\NotClickableWhenInvalidUsername.cs" />
+    <Compile Include="Common\Custom Attributes\ConfirmPasswordAttribute.cs" />
+    <Compile Include="Common\Custom Attributes\EmailAttribute.cs" />
+    <Compile Include="Common\Custom Attributes\PasswordAttribute.cs" />
+    <Compile Include="Common\Custom Attributes\EndUserExistAttribute.cs" />
+    <Compile Include="Common\Custom Attributes\UsernameOnlyLetttersAttribute.cs" />
     <Compile Include="Common\RelayArgCommand.cs" />
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Handler\CheckPasswordHandler.cs" />
     <Compile Include="Handler\ForgotPasswordHandler.cs" />
     <Compile Include="Model\EndUserModel.cs" />
+    <Compile Include="Persistency\ConnectEndUserDBService.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\Annotations1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\DTO\EndUser.cs" />
+    <Compile Include="Service References\EndUserDBService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\EndUserViewModel.cs" />
     <Compile Include="Handler\CreateEndUserHandler.cs" />
     <Compile Include="ViewModel\ForgotPasswordViewModel.cs" />
@@ -159,6 +181,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\EndUserDBService\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

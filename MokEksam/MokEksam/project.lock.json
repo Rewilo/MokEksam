@@ -374,7 +374,7 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.1.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -383,11 +383,11 @@
           "lib/wpa81/Prism.dll": {}
         }
       },
-      "Prism.Windows/6.0.2": {
+      "Prism.Windows/6.0.1": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0",
-          "Prism.Core": "6.2.0",
+          "Prism.Core": "6.1.0",
           "System.Collections": "4.0.10",
           "System.ComponentModel": "4.0.0",
           "System.ComponentModel.Annotations": "4.0.10",
@@ -2396,7 +2396,7 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.1.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -2405,11 +2405,11 @@
           "lib/wpa81/Prism.dll": {}
         }
       },
-      "Prism.Windows/6.0.2": {
+      "Prism.Windows/6.0.1": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0",
-          "Prism.Core": "6.2.0",
+          "Prism.Core": "6.1.0",
           "System.Collections": "4.0.10",
           "System.ComponentModel": "4.0.0",
           "System.ComponentModel.Annotations": "4.0.10",
@@ -4268,7 +4268,7 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.1.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -4277,11 +4277,11 @@
           "lib/wpa81/Prism.dll": {}
         }
       },
-      "Prism.Windows/6.0.2": {
+      "Prism.Windows/6.0.1": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0",
-          "Prism.Core": "6.2.0",
+          "Prism.Core": "6.1.0",
           "System.Collections": "4.0.10",
           "System.ComponentModel": "4.0.0",
           "System.ComponentModel.Annotations": "4.0.10",
@@ -6138,7 +6138,7 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.1.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -6147,11 +6147,11 @@
           "lib/wpa81/Prism.dll": {}
         }
       },
-      "Prism.Windows/6.0.2": {
+      "Prism.Windows/6.0.1": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0",
-          "Prism.Core": "6.2.0",
+          "Prism.Core": "6.1.0",
           "System.Collections": "4.0.10",
           "System.ComponentModel": "4.0.0",
           "System.ComponentModel.Annotations": "4.0.10",
@@ -8010,7 +8010,7 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.1.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -8019,11 +8019,11 @@
           "lib/wpa81/Prism.dll": {}
         }
       },
-      "Prism.Windows/6.0.2": {
+      "Prism.Windows/6.0.1": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0",
-          "Prism.Core": "6.2.0",
+          "Prism.Core": "6.1.0",
           "System.Collections": "4.0.10",
           "System.ComponentModel": "4.0.0",
           "System.ComponentModel.Annotations": "4.0.10",
@@ -9880,7 +9880,7 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.1.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -9889,11 +9889,11 @@
           "lib/wpa81/Prism.dll": {}
         }
       },
-      "Prism.Windows/6.0.2": {
+      "Prism.Windows/6.0.1": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0",
-          "Prism.Core": "6.2.0",
+          "Prism.Core": "6.1.0",
           "System.Collections": "4.0.10",
           "System.ComponentModel": "4.0.0",
           "System.ComponentModel.Annotations": "4.0.10",
@@ -11752,7 +11752,7 @@
           "lib/netcore45/Newtonsoft.Json.dll": {}
         }
       },
-      "Prism.Core/6.2.0": {
+      "Prism.Core/6.1.0": {
         "type": "package",
         "compile": {
           "lib/wpa81/Prism.dll": {}
@@ -11761,11 +11761,11 @@
           "lib/wpa81/Prism.dll": {}
         }
       },
-      "Prism.Windows/6.0.2": {
+      "Prism.Windows/6.0.1": {
         "type": "package",
         "dependencies": {
           "CommonServiceLocator": "1.3.0",
-          "Prism.Core": "6.2.0",
+          "Prism.Core": "6.1.0",
           "System.Collections": "4.0.10",
           "System.ComponentModel": "4.0.0",
           "System.ComponentModel.Annotations": "4.0.10",
@@ -14161,12 +14161,12 @@
         "tools/install.ps1"
       ]
     },
-    "Prism.Core/6.2.0": {
-      "sha512": "jWJRmjvR/bJqVyLr3T9hKToyV6X0Q2DONtyfa8ZjHJwlkD/SF3YJM+z8xSdqQl8uPfLOmgBG6Xm4lPk69P5o0g==",
+    "Prism.Core/6.1.0": {
+      "sha512": "JDUhYt+w3cawTVgLR1Hsbf59sytjsyFIdTmrbJKkKtHW7CCWAHFM9DGesWSU7cmUgbHm7MYZx5hQA+xiBTQeVg==",
       "type": "package",
-      "path": "Prism.Core/6.2.0",
+      "path": "Prism.Core/6.1.0",
       "files": [
-        "Prism.Core.6.2.0.nupkg.sha512",
+        "Prism.Core.6.1.0.nupkg.sha512",
         "Prism.Core.nuspec",
         "lib/MonoAndroid10/Prism.dll",
         "lib/MonoAndroid10/Prism.xml",
@@ -14186,12 +14186,12 @@
         "lib/wpa81/Prism.xml"
       ]
     },
-    "Prism.Windows/6.0.2": {
-      "sha512": "0EwCQvzf+W8/7i9bZCJcjjXAg7h+/BquEuWWZUBr4NXsKteDh/K+4UQsFpTb/2YN1nROJI4ixJEamwNxaEvkkQ==",
+    "Prism.Windows/6.0.1": {
+      "sha512": "ZizrGMZOkov0WGKPNnXS1bsIfh4oZnYqj5+bbqnAOQoDrG8FQO239Pc6U2glETwQDVhg30Eg5m1kfcKlfjjuDA==",
       "type": "package",
-      "path": "Prism.Windows/6.0.2",
+      "path": "Prism.Windows/6.0.1",
       "files": [
-        "Prism.Windows.6.0.2.nupkg.sha512",
+        "Prism.Windows.6.0.1.nupkg.sha512",
         "Prism.Windows.nuspec",
         "lib/uap10.0/Prism.Windows.dll",
         "lib/uap10.0/Prism.Windows.pri",
@@ -16722,7 +16722,8 @@
       "Microsoft.AspNet.WebApi.Client >= 5.2.3",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0",
       "Microsoft.Xaml.Behaviors.Uwp.Managed >= 1.1.0",
-      "Prism.Windows >= 6.0.2"
+      "Prism.Core >= 6.1.0",
+      "Prism.Windows >= 6.0.1"
     ],
     "UAP,Version=v10.0": []
   },

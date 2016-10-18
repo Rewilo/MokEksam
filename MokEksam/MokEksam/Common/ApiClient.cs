@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 /*
 Husk at rette namespace
 Du kan saette et default URL ved at replace [DEFAULT URL] med dit url
+
+Husk at rette klassens property (højreklik i Solution Explorer på klassen og vælg "Properties") fra "None" til "Build"
 */
 namespace MokEksam.Common
 {

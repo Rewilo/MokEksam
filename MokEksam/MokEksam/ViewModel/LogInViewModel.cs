@@ -30,7 +30,7 @@ namespace MokEksam.ViewModel
 
                 // login success
             }
-            catch (UnSuccesfulRequest)
+            catch (Exception)
             {
                 // login fail
 

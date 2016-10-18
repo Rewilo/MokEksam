@@ -8,6 +8,12 @@
     x:Name="PageRoot"
     
     mc:Ignorable="d">
+
+    <!-- Page DataContext -->
+    <Page.DataContext>
+        <ViewModel:EndUserViewModel/>
+    </Page.DataContext>
+
     <Page.Resources>
 
         <!-- Page layout StackPanel  -->
@@ -97,9 +103,7 @@
                 <StackPanel Name="CreateUserArea"
                             Margin="50,0"
                             MaxWidth="500"
-                            Visibility="{Binding 
-                                         Mode=TwoWay,
-                                         UpdateSourceTrigger=PropertyChanged}">
+                            >
 
                     <!--Form Title-->
                     <TextBlock Name="FormTitle"
@@ -124,15 +128,20 @@
                                  PlaceholderText="Vælg Brugernavn"
                                  Style="{StaticResource TextBoxStyleG}"
                                  Text="{Binding Username,
-                        Mode=TwoWay,
-                        UpdateSourceTrigger=PropertyChanged}" />
+                                 Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged}" />
 
                         <TextBlock Name="InvalidUsernameTextBlock" 
-                                 Text="Username is taken"   
-                                 Visibility="{Binding InvalidUsername, 
-                                 Mode=TwoWay,
-                                 UpdateSourceTrigger=PropertyChanged}"/>
-
+                                   Text="{Binding Errors[Username][0],
+                                   Mode=TwoWay}"
+                                   />
+                        <TextBlock Name="InvalidUsernameTextBlock2" 
+                                   Text="{Binding Errors[Username][1],
+                                   Mode=TwoWay}"/>
+                        <TextBlock Name="InvalidUsernameTextBlock3" 
+                                   Text="{Binding Errors[Username][2],
+                                   Mode=TwoWay}"
+                                   />
 
                     </StackPanel>
 
@@ -151,8 +160,12 @@
                                  PlaceholderText="Vælg Email"
                                  Style="{StaticResource TextBoxStyleG}"
                                  Text="{Binding Email,
-                        Mode=TwoWay,
-                        UpdateSourceTrigger=PropertyChanged}" />
+                                 Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged}" />
+
+                        <TextBlock Name="InvalidEmailTextBlock"
+                                   Text="{Binding Errors[Email][0], 
+                                   Mode=TwoWay}"></TextBlock>
 
 
                     </StackPanel>
@@ -173,12 +186,25 @@
                                  PlaceholderText="Vælg Password"
                                  Style="{StaticResource TextBoxStyleG}"
                                  Text="{Binding Password,
-                        Mode=TwoWay,
-                        UpdateSourceTrigger=PropertyChanged}" />
+                                 Mode=TwoWay,
+                                 UpdateSourceTrigger=PropertyChanged}" />
+
+                        <TextBlock Name="InvalidPasswordTextBlock"
+                                   Text="{Binding Errors[Password][0], 
+                                    Mode=TwoWay}"
+                                   />
+                        <TextBlock Name="InvalidPasswordTextBlock2"
+                                   Text="{Binding Errors[Password][1], 
+                                    Mode=TwoWay}"
+                                   />
+                        <TextBlock Name="InvalidPasswordTextBlock3"
+                                   Text="{Binding Errors[Password][2], 
+                                    Mode=TwoWay}"
+                                   />
                     </StackPanel>
 
                     <!--Confirm password-->
-                    <StackPanel Name="CUserconfirmPassword">
+                    <StackPanel Name="UserConfirmPassword">
 
                         <StackPanel Name="Confirmpassword"
                                     Style="{StaticResource FormTextArea}">
@@ -192,44 +218,38 @@
                                  PlaceholderText="Bekræft Password"
                                  Style="{StaticResource TextBoxStyleG}"
                                  Text="{Binding ConfirmPassword,
-                        Mode=TwoWay,
-                        UpdateSourceTrigger=PropertyChanged}" />
+                                    Mode=TwoWay,
+                                    UpdateSourceTrigger=PropertyChanged}" />
 
-                        <!--Button area-->
-
+                        <TextBlock Name="InvalidConfirmationTextBlock"
+                                   Text="{Binding Errors[ConfirmPassword][0], 
+                                    Mode=TwoWay}"/>
+                        <TextBlock Name="InvalidConfirmationTextBlock2"
+                                   Text="{Binding Errors[ConfirmPassword][1], 
+                                    Mode=TwoWay}"/>
+                      
                     </StackPanel>
-                    <StackPanel Name="StackPanelCreateUser" Orientation="Horizontal" >
-
+                    
+                    <!--Button area-->
+                    <StackPanel Name="StackPanelCreateUser" Orientation="Horizontal">
+                        
+                        <!--Icon="Add" Label="Create User"-->
                         <Button x:Name="CreateUserAppBarButton"
                             Content="Create user!"
                             HorizontalAlignment="Center"
                             Style="{StaticResource ButtonStyle}"
                             Command="{Binding CreateUserCommand, Mode=OneWay}"
                             IsEnabled="{Binding CreateUserIsEnabled}" 
-                           
                             Margin="15"/>
-
-                        <!--Icon="Add" Label="Create User"-->
-
-                        <Button x:Name="CheckUsernameAppBarButton"
-                            Content="Check user"                          
-                            Style="{StaticResource ButtonStyle}"
-                            Command="{Binding CheckUsernameCommand, Mode=OneWay}"  
-                           
-                            Margin="15"/>
-
-                        <!--Icon="Accept" Label="Check Username"-->
-
+                       
+                        <!--Icon="Back" Label="Go back"--> 
                         <Button x:Name="NavigateToLoginAppBarButton"
-                            Content="Login"                                                      
+                            Content="Go to Login"                                                      
                             Style="{StaticResource ButtonStyle}"
                             Command="{Binding NavigateToLoginCommand, Mode=OneWay}" 
-                           
                             Margin="15"/>
+                        
                     </StackPanel>
-                    
-                    <!--Icon="Back" Label="Go back"-->
-
                 </StackPanel>
             </Grid>
         </ScrollViewer>

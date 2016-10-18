@@ -1,61 +1,85 @@
 ﻿using System;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using Windows.UI.Popups;
-using MokEksam.Common;
-using MokEksam.Model;
-using MokEksam.Model.DTO;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using MokEksam.EndUserDBService;
 using MokEksam.ViewModel;
 
 namespace MokEksam.Handler
 {
+    /// <summary>
+    /// Klassen tilbyder EndUserViewModel metoder til View og håndterer logik.
+    /// Klassen eksisterer for at følge gode OO-principper 
+    /// </summary>
     class CreateEndUserHandler
     {
-        private EndUserViewModel EndUserViewModel { get; set; }
+        // Deklaring af reference for at få adgang til EndUserViewModels properties.
+        private EndUserViewModel EndUserViewModel { get; }
         
+        // Deklaring af refernce for at få adgang til WCF-Service
+        private EndUserDatabaseServiceClient ClientDbService { get; }
+        
+        // Jeg panikkede og tænkte med det samme alt måtte være statisk. Kan I komme på en bedre løsning?
+        // It ain't pretty but it works fine ...
+        public static string PasswordToConfirm = string.Empty;
+
+        /// <summary>
+        /// Opretter objekter til klassens referencer.
+        /// </summary>
+        /// <param name="endUserViewModel"></param>
         public CreateEndUserHandler(EndUserViewModel endUserViewModel)
         {
             EndUserViewModel = endUserViewModel;
+            ClientDbService = new EndUserDatabaseServiceClient();
         }
-        
-        public bool CheckUsername(string username)
+
+        // Samme fremgangsmåde som AddUser() men bruger istedet for WCF-Service.
+        /// <summary>
+        /// Metoden opretter en række i tabellen EndUser, hvis inputtet fra EndUserViewModel er valideret korrekt.
+        /// Hvis det lykkedes at oprette en ny bruger, så navigeres bruger hen til LoginView.
+        /// </summary>
+        public async void CreateUser()
         {
             try
             {
-                HttpClientHandler clientHandler = new HttpClientHandler();
-                clientHandler.UseDefaultCredentials = true;
-
-                using (HttpClient client = new HttpClient(clientHandler))
+                if (EndUserViewModel.ValidateProperties())
                 {
-                    client.BaseAddress = new Uri(Config.ConnectionUrl);
-                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("applicantion/json"));
-
-
-                    var result =
-                         client.GetAsync("api/EndUsers/" + username).Result;
-                    if (result.IsSuccessStatusCode)
+                    EndUser newEndUser = new EndUser()
                     {
-                        return false;
-                    }
-                    if (result.StatusCode == HttpStatusCode.NotFound)
-                    {
-                        return true;
-                    }
-                    throw new ArgumentException("Something went wrong along the way... Try another day");
+                        user_name = EndUserViewModel.Username,
+                        user_password = EndUserViewModel.Password,
+                        user_email = EndUserViewModel.Email
+                    };
+                    await ClientDbService.InsertEndUserAsync(newEndUser);
+
+                    
+                    var ms = new MessageDialog("You have create a new User for BirdmonGo\n" +
+                                               $"Username:   {EndUserViewModel.Username}\n" +
+                                               $"Password:   {EndUserViewModel.Password[0]}***{EndUserViewModel.Password[EndUserViewModel.Password.Length - 1]}\n" +
+                                               $"Email:      {EndUserViewModel.Email}");
+                    await ms.ShowAsync();
+                    NavigateToLogin();
+                }
+                else
+                {
+                    throw new ArgumentException("User input is not validated");
                 }
             }
-            catch (Exception ex)
+            catch (ArgumentException argException)
             {
-                //TODO: Implement an appropiate exceptionhandling code.
-                var displayExceptionMessage = new MessageDialog(ex.Message);
-                var displayExceptionMessageResult = displayExceptionMessage.ShowAsync();
-                return false;
+                var ms = new MessageDialog(argException.Message);
+                await ms.ShowAsync();
+            }
+            catch (Exception exception)
+            {
+                var ms = new MessageDialog(exception.Message);
+                await ms.ShowAsync();
             }
         }
 
-        public async Task<EndUser> AddUser(EndUser endUser)
+/*
+        private async Task<EndUser> AddUser(EndUser endUser)
         {
             try
             {
@@ -79,9 +103,17 @@ namespace MokEksam.Handler
             catch (UnSuccesfulRequest ex)
             {
                 var displayExceptionMessage = new MessageDialog(ex.Message);
-                var displayExceptionMessageResult = await displayExceptionMessage.ShowAsync();
-                return new EndUser("DerSketeEnFejl","abcdef1!", "abc@abc.dk");
+                await displayExceptionMessage.ShowAsync();
+                return new EndUser("DerSketeEnFejl", "abcdef1!", "abc@abc.dk");
             }
+        }
+*/
+        /// <summary>
+        /// Metoden navigerer til en anden page.xaml kaldet Login.xaml
+        /// </summary>
+        public void NavigateToLogin()
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(View.Login));
         }
     }
 }
