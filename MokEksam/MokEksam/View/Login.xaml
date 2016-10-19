@@ -135,7 +135,6 @@
                         <Button x:Name="ForgotPasswordButton"
                             Content="Forgot password!"                            
                             Style="{StaticResource ButtonStyle}"
-                            Command="{Binding Password, Mode=OneWay}" 
                             Margin="15"/>
 
 
