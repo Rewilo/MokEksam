@@ -2,6 +2,7 @@ namespace WebApi.Models
 {
     using System;
     using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 

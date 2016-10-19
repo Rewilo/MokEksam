@@ -132,7 +132,7 @@ namespace MokEksam.Client_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[13];
+            _typeNameTable = new string[16];
             _typeNameTable[0] = "MokEksam.ViewModel.EndUserViewModel";
             _typeNameTable[1] = "Prism.Windows.Validation.ValidatableBindableBase";
             _typeNameTable[2] = "Prism.Mvvm.BindableBase";
@@ -145,9 +145,12 @@ namespace MokEksam.Client_XamlTypeInfo
             _typeNameTable[9] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[10] = "Windows.UI.Xaml.Controls.UserControl";
             _typeNameTable[11] = "MokEksam.View.ForgotPassword";
-            _typeNameTable[12] = "MokEksam.View.Login";
+            _typeNameTable[12] = "MokEksam.ViewModel.LandingPageViewModel";
+            _typeNameTable[13] = "MokEksam.View.LandingPage";
+            _typeNameTable[14] = "MokEksam.ViewModel.LogInViewModel";
+            _typeNameTable[15] = "MokEksam.View.Login";
 
-            _typeTable = new global::System.Type[13];
+            _typeTable = new global::System.Type[16];
             _typeTable[0] = typeof(global::MokEksam.ViewModel.EndUserViewModel);
             _typeTable[1] = typeof(global::Prism.Windows.Validation.ValidatableBindableBase);
             _typeTable[2] = typeof(global::Prism.Mvvm.BindableBase);
@@ -160,7 +163,10 @@ namespace MokEksam.Client_XamlTypeInfo
             _typeTable[9] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[10] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
             _typeTable[11] = typeof(global::MokEksam.View.ForgotPassword);
-            _typeTable[12] = typeof(global::MokEksam.View.Login);
+            _typeTable[12] = typeof(global::MokEksam.ViewModel.LandingPageViewModel);
+            _typeTable[13] = typeof(global::MokEksam.View.LandingPage);
+            _typeTable[14] = typeof(global::MokEksam.ViewModel.LogInViewModel);
+            _typeTable[15] = typeof(global::MokEksam.View.Login);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -199,7 +205,10 @@ namespace MokEksam.Client_XamlTypeInfo
         private object Activate_1_ValidatableBindableBase() { return new global::Prism.Windows.Validation.ValidatableBindableBase(); }
         private object Activate_8_CreateUser() { return new global::MokEksam.View.CreateUser(); }
         private object Activate_11_ForgotPassword() { return new global::MokEksam.View.ForgotPassword(); }
-        private object Activate_12_Login() { return new global::MokEksam.View.Login(); }
+        private object Activate_12_LandingPageViewModel() { return new global::MokEksam.ViewModel.LandingPageViewModel(); }
+        private object Activate_13_LandingPage() { return new global::MokEksam.View.LandingPage(); }
+        private object Activate_14_LogInViewModel() { return new global::MokEksam.ViewModel.LogInViewModel(); }
+        private object Activate_15_Login() { return new global::MokEksam.View.Login(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -283,9 +292,35 @@ namespace MokEksam.Client_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 12:   //  MokEksam.View.Login
+            case 12:   //  MokEksam.ViewModel.LandingPageViewModel
+                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_12_LandingPageViewModel;
+                userType.AddMemberName("UserName");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 13:   //  MokEksam.View.LandingPage
                 userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_12_Login;
+                userType.Activator = Activate_13_LandingPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 14:   //  MokEksam.ViewModel.LogInViewModel
+                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_14_LogInViewModel;
+                userType.AddMemberName("Username");
+                userType.AddMemberName("Password");
+                userType.AddMemberName("NavigateToCreateUserCommand");
+                userType.AddMemberName("LogInCommand");
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 15:   //  MokEksam.View.Login
+                userType = new global::MokEksam.Client_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_15_Login;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -359,6 +394,51 @@ namespace MokEksam.Client_XamlTypeInfo
             var that = (global::Prism.Windows.Validation.ValidatableBindableBase)instance;
             return that.Errors;
         }
+        private object get_8_LandingPageViewModel_UserName(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.LandingPageViewModel)instance;
+            return that.UserName;
+        }
+        private object get_9_LogInViewModel_Username(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.LogInViewModel)instance;
+            return that.Username;
+        }
+        private void set_9_LogInViewModel_Username(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.LogInViewModel)instance;
+            that.Username = (global::System.String)Value;
+        }
+        private object get_10_LogInViewModel_Password(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.LogInViewModel)instance;
+            return that.Password;
+        }
+        private void set_10_LogInViewModel_Password(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.LogInViewModel)instance;
+            that.Password = (global::System.String)Value;
+        }
+        private object get_11_LogInViewModel_NavigateToCreateUserCommand(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.LogInViewModel)instance;
+            return that.NavigateToCreateUserCommand;
+        }
+        private void set_11_LogInViewModel_NavigateToCreateUserCommand(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.LogInViewModel)instance;
+            that.NavigateToCreateUserCommand = (global::System.Windows.Input.ICommand)Value;
+        }
+        private object get_12_LogInViewModel_LogInCommand(object instance)
+        {
+            var that = (global::MokEksam.ViewModel.LogInViewModel)instance;
+            return that.LogInCommand;
+        }
+        private void set_12_LogInViewModel_LogInCommand(object instance, object Value)
+        {
+            var that = (global::MokEksam.ViewModel.LogInViewModel)instance;
+            that.LogInCommand = (global::System.Windows.Input.ICommand)Value;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -414,6 +494,36 @@ namespace MokEksam.Client_XamlTypeInfo
                 xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "Errors", "Prism.Windows.Validation.BindableValidator");
                 xamlMember.Getter = get_7_ValidatableBindableBase_Errors;
                 xamlMember.SetIsReadOnly();
+                break;
+            case "MokEksam.ViewModel.LandingPageViewModel.UserName":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.LandingPageViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "UserName", "String");
+                xamlMember.Getter = get_8_LandingPageViewModel_UserName;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MokEksam.ViewModel.LogInViewModel.Username":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.LogInViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "Username", "String");
+                xamlMember.Getter = get_9_LogInViewModel_Username;
+                xamlMember.Setter = set_9_LogInViewModel_Username;
+                break;
+            case "MokEksam.ViewModel.LogInViewModel.Password":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.LogInViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "Password", "String");
+                xamlMember.Getter = get_10_LogInViewModel_Password;
+                xamlMember.Setter = set_10_LogInViewModel_Password;
+                break;
+            case "MokEksam.ViewModel.LogInViewModel.NavigateToCreateUserCommand":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.LogInViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "NavigateToCreateUserCommand", "System.Windows.Input.ICommand");
+                xamlMember.Getter = get_11_LogInViewModel_NavigateToCreateUserCommand;
+                xamlMember.Setter = set_11_LogInViewModel_NavigateToCreateUserCommand;
+                break;
+            case "MokEksam.ViewModel.LogInViewModel.LogInCommand":
+                userType = (global::MokEksam.Client_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MokEksam.ViewModel.LogInViewModel");
+                xamlMember = new global::MokEksam.Client_XamlTypeInfo.XamlMember(this, "LogInCommand", "System.Windows.Input.ICommand");
+                xamlMember.Getter = get_12_LogInViewModel_LogInCommand;
+                xamlMember.Setter = set_12_LogInViewModel_LogInCommand;
                 break;
             }
             return xamlMember;

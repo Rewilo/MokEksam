@@ -7,21 +7,21 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using WebApi.Models;
 
-namespace WebApi.Controllers
+
+namespace WebAPI.Controllers
 {
     public class PasswordController : ApiController
     {
         private dbContext db = new dbContext();
 
-        [ResponseType(typeof(void))]
-        public IHttpActionResult CheckPassword(string endUserName, string password)
+        [ResponseType(typeof(EndUser))]
+        public IHttpActionResult GetEndUser(string endUserName, string password)
         {
             EndUser endUser = db.EndUser.Find(endUserName);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
             if (endUser == null)
             {
                 return NotFound();
@@ -33,7 +33,7 @@ namespace WebApi.Controllers
             }
             else
             {
-                return Ok();
+                return Ok(endUser);
             }
 
         }
