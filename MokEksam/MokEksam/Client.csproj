@@ -121,6 +121,7 @@
     <Compile Include="Common\RelayCommand.cs" />
     <Compile Include="Handler\CheckPasswordHandler.cs" />
     <Compile Include="Handler\ForgotPasswordHandler.cs" />
+    <Compile Include="Handler\LandingPageHandler.cs" />
     <Compile Include="Model\EndUserModel.cs" />
     <Compile Include="Persistency\ConnectEndUserDBService.cs" />
     <Compile Include="Properties\Annotations.cs" />
