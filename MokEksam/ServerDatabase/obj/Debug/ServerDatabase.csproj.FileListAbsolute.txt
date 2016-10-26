@@ -226,6 +226,5 @@ C:\Users\Miki\Source\Repos\MokEksam\MokEksam\ServerDatabase\bin\Microsoft.Owin.S
 C:\Users\Miki\Source\Repos\MokEksam\MokEksam\ServerDatabase\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\Miki\Source\Repos\MokEksam\MokEksam\ServerDatabase\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\Miki\Source\Repos\MokEksam\MokEksam\ServerDatabase\bin\System.Web.Http.Owin.xml
-C:\Users\Miki\Source\Repos\MokEksam\MokEksam\ServerDatabase\obj\Debug\ServerDatabase.csprojResolveAssemblyReference.cache
 C:\Users\Miki\Source\Repos\MokEksam\MokEksam\ServerDatabase\obj\Debug\ServerDatabase.dll
 C:\Users\Miki\Source\Repos\MokEksam\MokEksam\ServerDatabase\obj\Debug\ServerDatabase.pdb
