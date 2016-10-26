@@ -272,3 +272,13 @@ __pycache__/
 *.suo
 MokEksam/.vs/config/applicationhost.config
 MokEksam/SQLQuery2.sql
+MokEksam/MokEksam/obj/x86/Debug/App.g.i.cs
+MokEksam/MokEksam/obj/x86/Debug/XamlSaveStateFile.xml
+MokEksam/MokEksam/obj/x86/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+MokEksam/MokEksam/obj/x86/Debug/App.g.i.cs
+MokEksam/ServerDatabase.Tests/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+MokEksam/MokEksam/obj/x86/Debug/XamlSaveStateFile.xml
+MokEksam/MokEksam/obj/x86/Debug/XamlSaveStateFile.xml
+MokEksam/MokEksam/obj/x86/Debug/App.g.cs
+MokEksam/.vs/MokEksam/v14/.suo
+/MokEksam/MokEksam/ClassDiagram1.cd

@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="MokEksam.View.LandingPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MokEksam.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModel="using:MokEksam.ViewModel"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <ViewModel:LandingPageViewModel/>
+    </Page.DataContext>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button x:Name="LogOutButton" Content="LogOut" Command="{Binding LogOutCommand}"></Button>
+
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="185,315,0,0" TextWrapping="Wrap" Text="YOU LOGGED IN AS:" VerticalAlignment="Top" Height="200" Width="1565" FontSize="150"/>
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="185,620,0,0" TextWrapping="Wrap" Text="{Binding UserName}" VerticalAlignment="Top" Height="235" Width="1425" FontSize="150"/>
+
+    </Grid>
+</Page>
+ 
