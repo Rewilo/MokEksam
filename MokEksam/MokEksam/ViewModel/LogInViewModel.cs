@@ -18,6 +18,7 @@ namespace MokEksam.ViewModel
         private string _password;
         private string _username;
         private ICommand _navigateToCreateUserCommand;
+        private ICommand _navigateToForgotPasswordCommand;
 
         public string Username
         {
@@ -55,6 +56,13 @@ namespace MokEksam.ViewModel
             }
             set { _navigateToCreateUserCommand = value; }
         }
+
+        public ICommand NavigateToForgotPasswordCommand
+        {
+            get { return _navigateToForgotPasswordCommand ?? (_navigateToForgotPasswordCommand = new RelayCommand(Handler.NavigateToForgotPassword)); }
+            set { _navigateToForgotPasswordCommand = value; }
+        }
+
         /// <summary>
         /// Sætter Handler login command
         /// </summary>
@@ -72,8 +80,6 @@ namespace MokEksam.ViewModel
         public LogInViewModel()
         {
             Handler = new CheckPasswordHandler(this);
-            LogInCommand = new RelayCommand(Handler.LogIn);
-            NavigateToCreateUserCommand = new RelayCommand(Handler.NavigateToCreateUser);
         }
 
 

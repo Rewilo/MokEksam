@@ -120,5 +120,10 @@ namespace MokEksam.Handler
         {
             ((Frame) Window.Current.Content).Navigate(typeof(View.LandingPage));
         }
+
+        public void NavigateToForgotPassword()
+        {
+            ((Frame)Window.Current.Content).Navigate(typeof(View.ForgotPassword));
+        }
     }
 }

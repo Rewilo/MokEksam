@@ -5,8 +5,13 @@
     xmlns:local="using:MokEksam.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:MokEksam.ViewModel"
     mc:Ignorable="d">
 
+    
+    <Page.DataContext>
+        <viewModel:LogInViewModel></viewModel:LogInViewModel>
+    </Page.DataContext>
     <Page.Resources>
 
         <!-- Page layout StackPanel  -->
@@ -134,26 +139,26 @@
                     <!--Button area-->
                     <StackPanel Name="StackPanelUser" Orientation="Horizontal" >
 
-                        <Button x:Name="CreateButton"
+                        <Button x:Name="ForgotPasswordButton"
                             Content="Forgot password!"                            
                             Style="{StaticResource ButtonStyle}"
-                            Command="{Binding Password, Mode=OneWay}" 
+                            Command="{Binding NavigateToForgotPasswordCommand, Mode=OneWay}" 
                             Margin="15"/>
 
 
 
-                        <Button x:Name="ForgotPassword"
+                        <Button x:Name="LoginButton"
                             Content="Login!"                          
                             Style="{StaticResource ButtonStyle}"
-                            Command="{Binding Login, Mode=OneWay}"  
+                            Command="{Binding LogInCommand, Mode=OneWay}"  
                             Margin="15"/>
 
 
 
-                        <Button x:Name="Newuser"
+                        <Button x:Name="NewuserButton"
                             Content="New user!"                                                      
                             Style="{StaticResource ButtonStyle}"
-                            Command="{Binding Newuser, Mode=OneWay}" 
+                            Command="{Binding NavigateToCreateUserCommand, Mode=OneWay}" 
                             Margin="15"/>
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="08cbd938-ac0b-4d6d-b997-0a66e9df6551" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="89d92612-414d-4385-9158-f848a591cdce" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -24,7 +24,7 @@
     <MetadataSource Address="http://localhost:62344/EndUserDatabaseService.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="EndUserDatabaseService.wsdl" MetadataType="Wsdl" ID="d952c52f-1bb9-4e76-b8a4-f431e30f516a" SourceId="1" SourceUrl="http://localhost:62344/EndUserDatabaseService.svc?singleWsdl" />
+    <MetadataFile FileName="EndUserDatabaseService.wsdl" MetadataType="Wsdl" ID="3a145798-dbfe-4592-8083-d27ccc82e229" SourceId="1" SourceUrl="http://localhost:62344/EndUserDatabaseService.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
