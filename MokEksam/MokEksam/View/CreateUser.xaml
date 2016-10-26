@@ -182,12 +182,12 @@
 
                         </StackPanel>
 
-                        <TextBox Name="PickPasswordTextbox"
+                        <PasswordBox Name="PickPasswordTextbox"
                                  PlaceholderText="Vælg Password"
-                                 Style="{StaticResource TextBoxStyleG}"
-                                 Text="{Binding Password,
+                                 Password="{Binding Password,
                                  Mode=TwoWay,
-                                 UpdateSourceTrigger=PropertyChanged}" />
+                                 UpdateSourceTrigger=PropertyChanged}"
+                                  />
 
                         <TextBlock Name="InvalidPasswordTextBlock"
                                    Text="{Binding Errors[Password][0], 
@@ -214,10 +214,9 @@
                                        Style="{StaticResource LabelStyles}" />
                         </StackPanel>
 
-                        <TextBox Name="PasswordLabel"
+                        <PasswordBox Name="PasswordLabel"
                                  PlaceholderText="Bekræft Password"
-                                 Style="{StaticResource TextBoxStyleG}"
-                                 Text="{Binding ConfirmPassword,
+                                 Password="{Binding ConfirmPassword,
                                     Mode=TwoWay,
                                     UpdateSourceTrigger=PropertyChanged}" />
 

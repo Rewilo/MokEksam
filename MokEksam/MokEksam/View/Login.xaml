@@ -121,10 +121,9 @@
 
                         </StackPanel>
 
-                        <TextBox x:Name="UserPassword"
+                        <PasswordBox x:Name="UserPassword"
                             PlaceholderText="Password"
-                            Style="{StaticResource TextBoxStyleG}"
-                            Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                            Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
                     </StackPanel>
 
