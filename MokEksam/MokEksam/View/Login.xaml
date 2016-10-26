@@ -1,11 +1,10 @@
 ﻿<Page
+    x:Class="MokEksam.View.Login"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:MokEksam.View"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:ViewModel="using:MokEksam.ViewModel"
-    x:Class="MokEksam.View.Login"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -62,94 +61,99 @@
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
-                <EntranceNavigationTransitionInfo />
+                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                    <EntranceNavigationTransitionInfo />
+                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
 
-    <Page.DataContext>
-        <ViewModel:LogInViewModel/>
-    </Page.DataContext>
-
     <!--Main Content-->
-    <Grid x:Name="MainContent"
-        Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Name="MainContent"
+          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-        <ScrollViewer x:Name="FormScroller">
-            <Grid x:Name="ForScrollerContent">
+        <ScrollViewer Name="FormScroller">
+            <Grid Name="ForScrollerContent">
 
                 <!--The Form-->
-                <StackPanel x:Name="CreateUserArea"
-                    Margin="50,0"
-                    MaxWidth="500"
-                    Visibility="{Binding Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                <StackPanel Name="CreateUserArea"
+                            Margin="50,0"
+                            MaxWidth="500"
+                            Visibility="{Binding 
+                                         Mode=TwoWay,
+                                         UpdateSourceTrigger=PropertyChanged}">
 
                     <!--Form Title-->
-                    <TextBlock x:Name="FormTitle"
-                        FontSize="36"
-                        Margin="0,20"                              
-                        TextAlignment="Center"
-                        Text="Login"/>
+                    <TextBlock Name="FormTitle"
+                               FontSize="36"
+                               Margin="0,20"                              
+                               TextAlignment="Center"
+                               Text="Login"/>
 
                     <!--Create name area-->
-                    <StackPanel x:Name="UserNameArea">
+                    <StackPanel Name="UserNameArea">
 
-                        <StackPanel x:Name="UserNameText"
-                            Style="{StaticResource FormTextArea}">
+                        <StackPanel Name="UserNameText"
+                                    Style="{StaticResource FormTextArea}">
 
-                            <TextBlock x:Name="UserNameLabel"
-                                Text="Write your name"
-                                Style="{StaticResource LabelStyles}" />
+                            <TextBlock Name="UserNameLabel"
+                                       Text="Write your name"
+                                       Style="{StaticResource LabelStyles}" />
 
                         </StackPanel>
 
-                        <TextBox x:Name="UserNameInput"
-                            PlaceholderText="Name"
-                            Style="{StaticResource TextBoxStyleG}"
-                            Text="{Binding Username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBox Name="UserNameInput"
+                                 PlaceholderText="Name"
+                                 Style="{StaticResource TextBoxStyleG}"
+                                 Text="{Binding Name,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}" />
 
                     </StackPanel>
 
                     <!--Password-->
-                    <StackPanel x:Name="UserPasswordArea">
+                    <StackPanel Name="UserPasswordArea">
 
-                        <StackPanel x:Name="UserPasswordtext"
-                            Style="{StaticResource FormTextArea}">
-                            <TextBlock x:Name="UserPasswordLabel"
-                                Text="Write your Password"
-                                Style="{StaticResource LabelStyles}" />
+                        <StackPanel Name="UserPasswordtext"
+                                    Style="{StaticResource FormTextArea}">
+                            <TextBlock Name="UserPasswordLabel"
+                                       Text="Write your Password"
+                                       Style="{StaticResource LabelStyles}" />
 
                         </StackPanel>
 
-                        <PasswordBox x:Name="UserPassword"
-                            PlaceholderText="Password"
-                            Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <TextBox Name="UserPassword"
+                                 PlaceholderText="Password"
+                                 Style="{StaticResource TextBoxStyleG}"
+                                 Text="{Binding Password,
+                        Mode=TwoWay,
+                        UpdateSourceTrigger=PropertyChanged}" />
 
                     </StackPanel>
 
                     <!--Button area-->
-                    <StackPanel x:Name="StackPanelUser" Orientation="Horizontal" >
+                    <StackPanel Name="StackPanelUser" Orientation="Horizontal" >
 
-
-                        <Button x:Name="ForgotPasswordButton"
+                        <Button x:Name="CreateButton"
                             Content="Forgot password!"                            
                             Style="{StaticResource ButtonStyle}"
+                            Command="{Binding Password, Mode=OneWay}" 
                             Margin="15"/>
 
 
 
-                        <Button x:Name="LoginButton"
+                        <Button x:Name="ForgotPassword"
                             Content="Login!"                          
                             Style="{StaticResource ButtonStyle}"
-                            Command="{Binding LogInCommand, Mode=OneWay}"  
+                            Command="{Binding Login, Mode=OneWay}"  
                             Margin="15"/>
 
 
 
-                        <Button x:Name="NewuserButton"
+                        <Button x:Name="Newuser"
                             Content="New user!"                                                      
                             Style="{StaticResource ButtonStyle}"
-                            Command="{Binding NavigateToCreateUserCommand, Mode=OneWay}" 
+                            Command="{Binding Newuser, Mode=OneWay}" 
                             Margin="15"/>
 
 
